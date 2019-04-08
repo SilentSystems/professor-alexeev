@@ -2,6 +2,10 @@
  * Global styles.
  */
 
+* {
+    outline: 0 !important;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
