@@ -29,26 +29,61 @@ h2 {
     margin: 1.5rem auto 1rem;
 }
 
-p {
-    margin-bottom: 0.8rem;
+h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    color: #343a40;
+    margin: 1.5rem auto 1rem;
 }
 
-a {
-    color: #6eb4ff;
+h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: #343a40;
+    margin: 1.5rem auto 1rem;
 }
-a:hover {
-    color: white;
+
+p {
+    margin-bottom: 0.8rem;
 }
 
 /**
  * Special styles.
  */
 
+.icon-custom {
+    display: inline-block;
+    width: 1rem;
+    height: 1.1rem;
+    margin: 0 0.1rem 0 0.5rem;
+}
 
+a.accordion-link {
+    cursor: pointer;
+}
+a.accordion-link span {
+    margin-right: 0.5rem;
+}
+
+div.accordion div.card {
+    border: 1px solid #fefefe;
+    background-color: white;
+}
+div.accordion div.card div.card-header {
+    border: none;
+    background-color: white;
+}
 
 /**
- * Styles by ID.
+ * Styles by sections.
  */
+
+nav a.nav-link {
+    color: #6eb4ff;
+}
+nav a.nav-link:hover {
+    color: white;
+}
 
 section.resume-section {
     min-height: 100vh;
