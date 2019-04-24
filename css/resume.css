@@ -74,6 +74,11 @@ div.accordion div.card div.card-header {
     background-color: white;
 }
 
+#bibliography-container div.card-body {
+    background-color: aliceblue;
+    font-size: 0.9rem;
+}
+
 /**
  * Styles by sections.
  */

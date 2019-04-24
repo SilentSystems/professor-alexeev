@@ -27,4 +27,47 @@
         target: '#sideNav'
     });
 
-})(jQuery); // End of use strict
+    /**
+     * Загрузка данных в раздел "Библиография".
+     */
+    $.getJSON( 'data/bibliography.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+
+            var container = $('#bibliography-container');
+            var template = $('#bibliography-item');
+
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+
+                var elem = json[i];
+
+                var paragraphs = '';
+                for (j = 0; j < elem.paragraphs.length; ++j) {
+                    paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
+                }
+
+                var item = template.html()
+                    .replace(/{{ id }}/g, elem.id)
+                    .replace(/{{ name }}/g, elem.name)
+                    .replace(/{{ paragraphs }}/g, paragraphs)
+                    .replace(/d-none/g, '')
+                ;
+
+                html += item;
+
+            }
+
+            container.html(html);
+
+        })
+
+    ;
+
+}) (jQuery);
