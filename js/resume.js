@@ -54,10 +54,11 @@
                 }
 
                 var item = template.html()
-                    .replace(/{{ id }}/g, elem.id)
+                    .replace(/{{ id }}/g, i + 1)
                     .replace(/{{ name }}/g, elem.name)
+                    .replace(/{{ authors }}/g, elem.authors)
+                    .replace(/{{ description }}/g, elem.description)
                     .replace(/{{ paragraphs }}/g, paragraphs)
-                    .replace(/d-none/g, '')
                 ;
 
                 html += item;

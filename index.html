@@ -56,11 +56,16 @@
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#video">Видео</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#contacts">Контакты</a>
-            </li>
         </ul>
+        <p class="mini-contacts">
+            Связаться с профессором можно по электронному адресу:
+            <a href="mailto:alexeev_aa@bk.ru">alexeev_aa@bk.ru</a>.
+        </p>
     </div>
+    <p class="contacts">
+        Связаться с профессором можно по электронному адресу:
+        <a href="mailto:alexeev_aa@bk.ru">alexeev_aa@bk.ru</a>.
+    </p>
 </nav>
 
 <div class="container-fluid p-0">
@@ -163,31 +168,7 @@
                     Список книг:
                 </h3>
 
-                <div class="accordion" id="bibliography-container">
-
-                    <!-- Массив элементов "Библиография". -->
-
-                    <div id="bibliography-item">
-                        <div class="card d-none">
-                            <div class="card-header" id="heading{{ id }}">
-                                <strong class="mb-0">
-                                    <a class="collapsed accordion-link" data-toggle="collapse" data-target="#collapse{{ id }}"
-                                       aria-expanded="false" aria-controls="collapse{{ id }}" title="Нажмите, чтобы развернуть / свернуть.">
-                                        <span>{{ id }}.</span> {{ name }}
-                                    </a>
-                                </strong>
-                            </div>
-                            <div id="collapse{{ id }}" class="collapse" aria-labelledby="heading{{ id }}" data-parent="#bibliography-container">
-                                <div class="card-body">
-                                    {{ paragraphs }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Массив элементов "Библиография". -->
-
-                </div>
+                <div class="accordion" id="bibliography-container"></div>
 
             </div>
         </div>
@@ -208,25 +189,37 @@
         </div>
     </section>
 
-    <hr class="m-0">
+</div>
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="contacts">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="text-uppercase">
-                    Контакты
-                </h1>
-                <p>
-                    г. Москва
-                    (499) 612-66-71
-                    (499) 612-55-51
-                    e-mail: alexeev_aa@bk.ru
-                </p>
+<!-- Элемент списка "Библиография". -->
+
+<template id="bibliography-item">
+    <div class="card">
+        <div class="card-header" id="heading{{ id }}">
+            <strong class="mb-0">
+                <a class="collapsed accordion-link" data-toggle="collapse" data-target="#collapse{{ id }}"
+                   aria-expanded="false" aria-controls="collapse{{ id }}" title="Нажмите, чтобы развернуть / свернуть.">
+                    <span>
+                        {{ id }}.
+                    </span>
+                    {{ name }}
+                    <br>
+                    <small class="text-muted">
+                        <strong>{{ authors }}</strong>
+                        <em class="ml-3">{{ description }}</em>
+                    </small>
+                </a>
+            </strong>
+        </div>
+        <div id="collapse{{ id }}" class="collapse" aria-labelledby="heading{{ id }}" data-parent="#bibliography-container">
+            <div class="card-body">
+                {{ paragraphs }}
             </div>
         </div>
-    </section>
+    </div>
+</template>
 
-</div>
+<!-- Элемент списка "Библиография". -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
