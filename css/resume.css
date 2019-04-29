@@ -64,6 +64,10 @@ a.accordion-link {
 a.accordion-link span {
     margin-right: 0.5rem;
 }
+a.accordion-link span.badge {
+    background-color: gainsboro;
+    font-size: 90%;
+}
 
 div.accordion div.card {
     border: 1px solid #fefefe;
@@ -80,6 +84,8 @@ div.accordion div.card-body p:last-child {
 #bibliography-container div.card-body {
     background-color: aliceblue;
     font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
 }
 
 /**

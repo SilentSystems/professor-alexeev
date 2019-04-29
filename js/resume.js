@@ -49,8 +49,16 @@
                 var elem = json[i];
 
                 var paragraphs = '';
-                for (j = 0; j < elem.paragraphs.length; ++j) {
-                    paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
+
+                if (
+                    elem.paragraphs.length > 0
+                    && elem.paragraphs.join('').length > 0
+                ) {
+                    for (j = 0; j < elem.paragraphs.length; ++j) {
+                        paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
+                    }
+                } else {
+                    paragraphs = '<p>Описание отсутствует.</p>'
                 }
 
                 var item = template.html()
