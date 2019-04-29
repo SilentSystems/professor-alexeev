@@ -67,6 +67,7 @@
                     .replace(/{{ authors }}/g, elem.authors)
                     .replace(/{{ description }}/g, elem.description)
                     .replace(/{{ paragraphs }}/g, paragraphs)
+                    .replace(/(\d{4})/g, '<strong>$1</strong>')
                 ;
 
                 html += item;

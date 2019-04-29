@@ -76,6 +76,7 @@ div.accordion div.card {
 div.accordion div.card div.card-header {
     border: none;
     background-color: white;
+    padding-left: 0;
 }
 div.accordion div.card-body p:last-child {
     margin-bottom: 0 !important;
