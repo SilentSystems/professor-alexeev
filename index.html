@@ -35,10 +35,10 @@
 
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#about">
-        <span class="d-block d-lg-none">
+        <span class="d-block d-md-none">
             Профессор Алексеев А. А.
         </span>
-        <span class="d-none d-lg-block">
+        <span class="d-none d-md-block">
             <img class="img-profile rounded-circle" src="images/photos/alexeev_top.jpg" alt="Профессор Алексеев А. А.">
         </span>
     </a>
@@ -73,7 +73,7 @@
 
 <div class="container-fluid p-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="about">
+    <section class="resume-section p-3 p-md-5 d-flex" id="about">
 
         <div class="row">
             <div class="col-sm-12">
@@ -133,7 +133,7 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="theory">
+    <section class="resume-section p-3 p-md-5 d-flex" id="theory">
 
         <div class="row">
             <div class="col-sm-12">
@@ -175,7 +175,7 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="bibliography">
+    <section class="resume-section p-3 p-md-5 d-flex" id="bibliography">
         <div class="row">
             <div class="col-sm-12">
 
@@ -187,7 +187,9 @@
                     Список книг:
                 </h3>
 
-                <div class="accordion" id="bibliography-container"></div>
+                <div class="accordion" id="bibliography-container">
+                    <!-- Список книг "Библиография". -->
+                </div>
 
                 <hr>
 
@@ -220,22 +222,70 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex" id="video">
+    <script>
+        function openPopup (elem) {
+            window.open(
+                elem.href,
+                '',
+                'width=' + screen.availWidth / 2 + ', height=' + screen.availHeight / 2 + ', top='
+                    + screen.availHeight / 4 + ', left=' + screen.availWidth / 4
+            );
+
+            return false;
+        }
+    </script>
+
+    <section class="resume-section p-3 p-md-5 d-flex" id="video">
         <div class="row">
             <div class="col-sm-12">
+
                 <h1 class="text-uppercase">
                     Видео
                 </h1>
-                <p>
-                    ...
-                </p>
+
+                <div class="media-container">
+
+                    <div class="media">
+                        <a href="http://www.youtube.com/embed/JMJXvsCLu6s" onClick="openPopup(this); return false;">
+                            <img src="http://img.youtube.com/vi/JMJXvsCLu6s/mqdefault.jpg" title="" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="mt-1">List-based media object</h5>
+                            <p>...</p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LT-pyQNMt8"></iframe>
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">List-based media object</h5>
+                            <p>...</p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LT-pyQNMt8"></iframe>
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">List-based media object</h5>
+                            <p>...</p>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2LT-pyQNMt8"></iframe>
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">List-based media object</h5>
+                            <p>...</p>
+                        </div>
+                    </div>
+
             </div>
         </div>
     </section>
 
 </div>
 
-<!-- Элемент списка "Библиография". -->
+<!-- Элемент списка книг "Библиография". -->
 
 <template id="bibliography-item">
     <div class="card">
@@ -262,8 +312,6 @@
         </div>
     </div>
 </template>
-
-<!-- Элемент списка "Библиография". -->
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

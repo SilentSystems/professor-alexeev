@@ -58,6 +58,10 @@ p {
     margin: 0 0.1rem 0 0.5rem;
 }
 
+/**
+ * "Bibliography" section.
+ */
+
 a.accordion-link {
     cursor: pointer;
 }
@@ -87,6 +91,18 @@ div.accordion div.card-body p:last-child {
     font-size: 0.9rem;
     padding: 1rem 1.5rem;
     border-radius: 1rem;
+}
+
+/**
+ * "Video" section.
+ */
+
+section#video .media {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    flex-flow: column;
 }
 
 /**
@@ -130,7 +146,7 @@ section.resume-section {
     padding-top: 3rem !important;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 
     body {
         padding-top: 0;
@@ -216,17 +232,6 @@ section.resume-section {
         min-height: 100vh;
         padding-top: 1rem !important;
     }
-
-    nav p.mini-contacts {
-        display: none;
-    }
-    nav p.contacts {
-        display: block;
-    }
-
-}
-
-@media (min-width: 768px) {
 
     nav p.mini-contacts {
         display: none;
