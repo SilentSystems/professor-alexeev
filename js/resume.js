@@ -97,4 +97,55 @@
 
     ;
 
+    /**
+     * Загрузка данных в раздел "Видео".
+     */
+    $.getJSON( 'data/video.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+
+            var container = $('#video-container');
+            var template = $('#video-item');
+
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+
+                var elem = json[i];
+
+                var paragraphs = '';
+
+                if (
+                    elem.paragraphs.length > 0
+                    && elem.paragraphs.join('').length > 0
+                ) {
+                    for (j = 0; j < elem.paragraphs.length; ++j) {
+                        paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
+                    }
+                } else {
+                    paragraphs = '<p>Описание отсутствует.</p>'
+                }
+
+                var item = template.html()
+                    // .replace(/{{ id }}/g, i + 1)
+                    .replace(/{{ code }}/g, elem.code)
+                    .replace(/{{ caption }}/g, elem.caption)
+                    .replace(/{{ paragraphs }}/g, paragraphs)
+                ;
+
+                html += item;
+
+            }
+
+            container.html(html);
+
+        })
+
+    ;
+
 }) (jQuery);

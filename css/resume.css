@@ -119,6 +119,8 @@ section#video div.media-container div.media {
 
     overflow-x: hidden;
     overflow-y: hidden;
+
+    border-radius: 5px;
 }
 
 section#video div.media-container div.media div.media-body {
@@ -254,7 +256,7 @@ section.resume-section {
 
     section.resume-section {
         min-height: 100vh;
-        padding-top: 1rem;
+        padding-top: 1rem !important;
     }
 
     nav p.mini-contacts {

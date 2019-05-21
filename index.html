@@ -245,106 +245,8 @@
                     Видео
                 </h1>
 
-                <div class="media-container">
-
-                    <div class="media">
-                        <a href="http://www.youtube.com/embed/2LT-pyQNMt8" onClick="openPopup(this); return false;">
-                            <img src="http://img.youtube.com/vi/2LT-pyQNMt8/mqdefault.jpg" title="" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h6 class="mt-3 mb-2">
-                                ТВ-6, Москва, 1997 г. Передача "Те, кто...".
-                            </h6>
-                            <p>
-                                30 лет, 50 книг... А проблема коллагенопатий, дисплазий соединительной ткани
-                                в 23600 болезнях никого не волнует...
-                            </p>
-                            <p>
-                                Доктором медицинских наук Алексеевым Александром Алексеевичем, предложена новейшая
-                                теория биологии и медицины, успешно проигнорированная медицинским сообществом.
-                                Предлагаем только три письма из тысяч, первое в Совет Федерации и еще два от докторов,
-                                нуждающихся в новых медицинских знаниях.
-                            </p>
-                            <p>
-                                Прошло немало лет. Более 20 лет, с момента выхода в 1993 г. книги
-                                "От чего погибнет человечество...". Пусть миллионы умерших и неродившихся останутся
-                                на совести Минздрава.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="media">
-                        <a href="http://www.youtube.com/embed/2LT-pyQNMt8" onClick="openPopup(this); return false;">
-                            <img src="http://img.youtube.com/vi/2LT-pyQNMt8/mqdefault.jpg" title="" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h6 class="mt-3 mb-2">
-                                ТВ-6, Москва, 1997 г. Передача "Те, кто...".
-                            </h6>
-                            <p>
-                                30 лет, 50 книг... А проблема коллагенопатий, дисплазий соединительной ткани
-                                в 23600 болезнях никого не волнует...
-                            </p>
-                            <p>
-                                Доктором медицинских наук Алексеевым Александром Алексеевичем, предложена новейшая
-                                теория биологии и медицины, успешно проигнорированная медицинским сообществом.
-                                Предлагаем только три письма из тысяч, первое в Совет Федерации и еще два от докторов,
-                                нуждающихся в новых медицинских знаниях.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="media">
-                        <a href="http://www.youtube.com/embed/2LT-pyQNMt8" onClick="openPopup(this); return false;">
-                            <img src="http://img.youtube.com/vi/2LT-pyQNMt8/mqdefault.jpg" title="" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h6 class="mt-3 mb-2">
-                                ТВ-6, Москва, 1997 г. Передача "Те, кто...".
-                            </h6>
-                            <p>
-                                30 лет, 50 книг... А проблема коллагенопатий, дисплазий соединительной ткани
-                                в 23600 болезнях никого не волнует...
-                            </p>
-                            <p>
-                                Доктором медицинских наук Алексеевым Александром Алексеевичем, предложена новейшая
-                                теория биологии и медицины, успешно проигнорированная медицинским сообществом.
-                                Предлагаем только три письма из тысяч, первое в Совет Федерации и еще два от докторов,
-                                нуждающихся в новых медицинских знаниях.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="media">
-                        <a href="http://www.youtube.com/embed/2LT-pyQNMt8" onClick="openPopup(this); return false;">
-                            <img src="http://img.youtube.com/vi/2LT-pyQNMt8/mqdefault.jpg" title="" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h6 class="mt-3 mb-3">
-                                ТВ-6, Москва, 1997 г. Передача "Те, кто...".
-                            </h6>
-                            <p>
-                                30 лет, 50 книг... А проблема коллагенопатий, дисплазий соединительной ткани
-                                в 23600 болезнях никого не волнует...
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="media">
-                        <a href="http://www.youtube.com/embed/2LT-pyQNMt8" onClick="openPopup(this); return false;">
-                            <img src="http://img.youtube.com/vi/2LT-pyQNMt8/mqdefault.jpg" title="" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h6 class="mt-3 mb-2">
-                                ТВ-6, Москва, 1997 г. Передача "Те, кто...".
-                            </h6>
-                            <p>
-                                30 лет, 50 книг... А проблема коллагенопатий, дисплазий соединительной ткани
-                                в 23600 болезнях никого не волнует...
-                            </p>
-                        </div>
-                    </div>
-
+                <div class="media-container" id="video-container">
+                    <!-- Список видео. -->
                 </div>
 
             </div>
@@ -353,7 +255,7 @@
 
 </div>
 
-<!-- Элемент списка книг "Библиография". -->
+<!-- Шаблон элемента списка книг "Библиография". -->
 
 <template id="bibliography-item">
     <div class="card">
@@ -380,6 +282,23 @@
         </div>
     </div>
 </template>
+
+<!-- Шаблон элемента списка видео. -->
+
+<template id="video-item">
+    <div class="media">
+        <a href="http://www.youtube.com/embed/{{ code }}" onClick="openPopup(this); return false;">
+            <img src="http://img.youtube.com/vi/{{ code }}/mqdefault.jpg" title="" alt="">
+        </a>
+        <div class="media-body">
+            <h6 class="mt-3 mb-2">
+                {{ caption }}
+            </h6>
+            {{ paragraphs }}
+        </div>
+    </div>
+</template>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
