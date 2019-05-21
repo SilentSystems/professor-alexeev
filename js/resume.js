@@ -28,6 +28,23 @@
     });
 
     /**
+     * Простановка ссылок для раскрытия подкатов в медиа-элементах.
+     */
+    $('.media').each(function (index) {
+        var body = $(this).find('.media-body').first();
+        var height = parseInt(body.css('height'));
+        if (
+            !isNaN(height)
+            && height > 140
+        ) {
+            /**
+             * Урезаем текст, добавляем ссылку на подкат...
+             */
+            // ...
+        }
+    });
+
+    /**
      * Загрузка данных в раздел "Библиография".
      */
     $.getJSON( 'data/bibliography.json')
@@ -67,7 +84,7 @@
                     .replace(/{{ authors }}/g, elem.authors)
                     .replace(/{{ description }}/g, elem.description)
                     .replace(/{{ paragraphs }}/g, paragraphs)
-                    .replace(/(\d{4})/g, '<strong>$1</strong>')
+                    .replace(/( \d{4} г.)/g, '<strong>$1</strong>')
                 ;
 
                 html += item;

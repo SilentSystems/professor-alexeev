@@ -62,31 +62,31 @@ p {
  * "Bibliography" section.
  */
 
-a.accordion-link {
+section#bibliography a.accordion-link {
     cursor: pointer;
 }
-a.accordion-link span {
+section#bibliography a.accordion-link span {
     margin-right: 0.5rem;
 }
-a.accordion-link span.badge {
+section#bibliography a.accordion-link span.badge {
     background-color: gainsboro;
     font-size: 90%;
 }
 
-div.accordion div.card {
+section#bibliography div.accordion div.card {
     border: 1px solid #fefefe;
     background-color: white;
 }
-div.accordion div.card div.card-header {
+section#bibliography div.accordion div.card div.card-header {
     border: none;
     background-color: white;
     padding-left: 0;
 }
-div.accordion div.card-body p:last-child {
+section#bibliography div.accordion div.card-body p:last-child {
     margin-bottom: 0 !important;
 }
 
-#bibliography-container div.card-body {
+section#bibliography div#bibliography-container div.card-body {
     background-color: aliceblue;
     font-size: 0.9rem;
     padding: 1rem 1.5rem;
@@ -97,12 +97,36 @@ div.accordion div.card-body p:last-child {
  * "Video" section.
  */
 
-section#video .media {
+section#video div.media-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+section#video div.media-container div.media {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: start;
     align-items: flex-start;
     flex-flow: column;
+
+    margin: 1rem 1rem 1rem 0;
+    max-width: 320px;
+    max-height: 320px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+section#video div.media-container div.media div.media-body {
+    font-size: 75%;
+}
+
+section#video div.media-container div.media div.media-body p {
+    margin-bottom: 0.4rem;
 }
 
 /**
@@ -143,7 +167,7 @@ nav p.contacts {
 
 section.resume-section {
     min-height: 100vh;
-    padding-top: 3rem !important;
+    padding-top: 3.5rem !important;
 }
 
 @media (min-width: 768px) {
@@ -230,7 +254,7 @@ section.resume-section {
 
     section.resume-section {
         min-height: 100vh;
-        padding-top: 1rem !important;
+        padding-top: 1rem;
     }
 
     nav p.mini-contacts {
