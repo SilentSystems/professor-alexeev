@@ -6,12 +6,23 @@
             location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '')
             && location.hostname === this.hostname
         ) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            var hash = this.hash;
+
+            if (hash === '#index') {
+                return location = '';
+            }
+
+            var target = $(hash);
+
+            target = target.length ? target : $('[name=' + hash.slice(1) + ']');
+
             if (target.length) {
                 $('html, body').animate({
                     scrollTop: (target.offset().top)
-                }, 1000, "easeInOutExpo");
+                }, 1000, 'easeInOutExpo', function () {
+                    location.hash = hash;
+                });
+
                 return false;
             }
         }
@@ -75,7 +86,7 @@
                         paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
                     }
                 } else {
-                    paragraphs = '<p>Описание отсутствует.</p>'
+                    paragraphs = '<p>Описание отсутствует.</p>';
                 }
 
                 var item = template.html()
@@ -128,11 +139,10 @@
                         paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
                     }
                 } else {
-                    paragraphs = '<p>Описание отсутствует.</p>'
+                    paragraphs = '';
                 }
 
                 var item = template.html()
-                    // .replace(/{{ id }}/g, i + 1)
                     .replace(/{{ code }}/g, elem.code)
                     .replace(/{{ caption }}/g, elem.caption)
                     .replace(/{{ paragraphs }}/g, paragraphs)
