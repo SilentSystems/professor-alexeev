@@ -7,11 +7,6 @@
             && location.hostname === this.hostname
         ) {
             var hash = this.hash;
-
-            if (hash === '#index') {
-                return location = '';
-            }
-
             var target = $(hash);
 
             target = target.length ? target : $('[name=' + hash.slice(1) + ']');
