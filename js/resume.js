@@ -1,3 +1,14 @@
+function openPopup (elem) {
+    window.open(
+        elem.href,
+        '',
+        'width=' + screen.availWidth / 2 + ', height=' + screen.availHeight / 2 + ', top='
+        + screen.availHeight / 4 + ', left=' + screen.availWidth / 4
+    );
+
+    return false;
+}
+
 (function($) {
 
     // Smooth scrolling using jQuery easing
