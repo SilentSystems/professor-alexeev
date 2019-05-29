@@ -8,8 +8,6 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    /* font-family: 'Roboto', sans-serif; */
-    /* font-family: 'Roboto Condensed', sans-serif;*/
     font-size: 1rem;
     color: black;
     min-width: 360px;
@@ -132,6 +130,17 @@ section#video div.media-container div.media div.media-body p {
 }
 
 /**
+ * "Contacts" section.
+ */
+
+section#contacts ul li {
+    margin-bottom: 0.5rem;
+}
+section#contacts ul li span {
+    margin-left: 0.5rem;
+}
+
+/**
  * Styles by sections.
  */
 
@@ -140,31 +149,6 @@ nav a.nav-link {
 }
 nav a.nav-link:hover {
     color: white;
-}
-nav p.contacts {
-    font-size: 0.8rem;
-
-    padding: 1rem 1.2rem;
-    margin: 2rem 2rem;
-    background-color: aliceblue;
-
-    border-radius: 10px;
-}
-nav p.mini-contacts {
-    font-size: 0.7rem;
-
-    padding: 0.5rem 0.6rem;
-    margin: 0.8rem 0;
-    background-color: aliceblue;
-
-    border-radius: 7px;
-}
-
-nav p.mini-contacts {
-    display: inline-block;
-}
-nav p.contacts {
-    display: none;
 }
 
 section.resume-section {
@@ -248,7 +232,7 @@ section.resume-section {
         display: block;
         opacity: 1;
 
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 800;
         letter-spacing: .05rem;
         text-transform: uppercase;
@@ -257,13 +241,6 @@ section.resume-section {
     section.resume-section {
         min-height: 100vh;
         padding-top: 1rem !important;
-    }
-
-    nav p.mini-contacts {
-        display: none;
-    }
-    nav p.contacts {
-        display: block;
     }
 
 }
