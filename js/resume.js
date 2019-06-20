@@ -82,6 +82,10 @@ function openPopup (elem) {
 
                 var elem = json[i];
 
+                /**
+                 * Формируем параграфы.
+                 * @type {string}
+                 */
                 var paragraphs = '';
 
                 if (
@@ -95,12 +99,23 @@ function openPopup (elem) {
                     paragraphs = '<p>Описание отсутствует.</p>';
                 }
 
+                paragraphs = '<div>' + paragraphs + '</div>';
+
+                /**
+                 * Формируем изображение.
+                 */
+                var image = (elem.image)
+                    ? '<img src="/images/books/' + elem.image + '" class="rounded float-left" alt="' + elem.name + '">'
+                    : ''
+                ;
+
                 var item = template.html()
                     .replace(/{{ id }}/g, i + 1)
                     .replace(/{{ name }}/g, elem.name)
                     .replace(/{{ authors }}/g, elem.authors)
                     .replace(/{{ description }}/g, elem.description)
                     .replace(/{{ paragraphs }}/g, paragraphs)
+                    .replace(/{{ image }}/g, image)
                     .replace(/( \d{4} г.)/g, '<strong>$1</strong>')
                 ;
 
