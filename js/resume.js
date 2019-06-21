@@ -102,12 +102,19 @@ function openPopup (elem) {
                 paragraphs = '<div>' + paragraphs + '</div>';
 
                 /**
-                 * Формируем изображение.
+                 * Формируем изображения.
                  */
-                var image = (elem.image)
-                    ? '<img src="/images/books/' + elem.image + '" class="rounded float-left" alt="' + elem.name + '">'
-                    : ''
-                ;
+
+                var images = '';
+
+                if (
+                    elem.images.length > 0
+                    && elem.images.join('').length > 0
+                ) {
+                    for (j = 0; j < elem.images.length; ++j) {
+                        images += '<img src="/images/books/' + elem.images[j] + '" class="rounded float-left" alt="' + elem.name + '">';
+                    }
+                }
 
                 var item = template.html()
                     .replace(/{{ id }}/g, i + 1)
@@ -115,7 +122,7 @@ function openPopup (elem) {
                     .replace(/{{ authors }}/g, elem.authors)
                     .replace(/{{ description }}/g, elem.description)
                     .replace(/{{ paragraphs }}/g, paragraphs)
-                    .replace(/{{ image }}/g, image)
+                    .replace(/{{ images }}/g, images)
                     .replace(/( \d{4} г.)/g, '<strong>$1</strong>')
                 ;
 

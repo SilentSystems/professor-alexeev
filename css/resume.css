@@ -95,8 +95,8 @@ section#bibliography div.accordion div.card-body img {
 section#bibliography div#bibliography-container div.card-body {
     background-color: aliceblue;
     font-size: 0.9rem;
-    padding: 1rem 1.5rem;
-    border-radius: 1rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 0.5rem;
 }
 
 /**
@@ -259,6 +259,12 @@ section.resume-section {
     section.resume-section {
         min-height: 100vh;
         padding-top: 1rem !important;
+    }
+
+    section#bibliography div.accordion div.card-body img {
+        max-width: 13rem;
+        max-height: 13rem;
+        margin-right: 1rem;
     }
 
 }
