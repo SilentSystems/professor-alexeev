@@ -90,6 +90,7 @@ section#bibliography div.accordion div.card-body img {
     max-width: 10rem;
     max-height: 10rem;
     margin-right: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 section#bibliography div#bibliography-container div.card-body {
@@ -264,7 +265,6 @@ section.resume-section {
     section#bibliography div.accordion div.card-body img {
         max-width: 13rem;
         max-height: 13rem;
-        margin-right: 1rem;
     }
 
 }
