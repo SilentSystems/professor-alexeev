@@ -86,11 +86,21 @@ section#bibliography div.accordion div.card div.card-header {
 section#bibliography div.accordion div.card-body p:last-child {
     margin-bottom: 0 !important;
 }
+section#bibliography div.accordion div.card-body {
+    overflow: hidden;
+}
+section#bibliography div.accordion div.card-body div.images {
+    float: left;
+    max-width: 22rem;
+    margin-right: 3px;
+}
+section#bibliography div.accordion div.card-body div.description {
+}
 section#bibliography div.accordion div.card-body img {
-    max-width: 10rem;
-    max-height: 10rem;
+    width: 10rem;
     margin-right: 1rem;
     margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
 }
 
 section#bibliography div#bibliography-container div.card-body {
@@ -263,8 +273,7 @@ section.resume-section {
     }
 
     section#bibliography div.accordion div.card-body img {
-        max-width: 13rem;
-        max-height: 13rem;
+        width: 10rem;
     }
 
 }
