@@ -99,8 +99,6 @@ function openPopup (elem) {
                     paragraphs = '<p>Описание отсутствует.</p>';
                 }
 
-                paragraphs = '<div>' + paragraphs + '</div>';
-
                 /**
                  * Формируем изображения.
                  */
@@ -112,7 +110,7 @@ function openPopup (elem) {
                     && elem.images.join('').length > 0
                 ) {
                     for (j = 0; j < elem.images.length; ++j) {
-                        images += '<img src="/images/books/' + elem.images[j] + '" class="rounded float-left" alt="' + elem.name + '">';
+                        images += '<img src="/images/books/' + elem.images[j] + '" class="rounded" alt="' + elem.name + '">';
                     }
                 }
 

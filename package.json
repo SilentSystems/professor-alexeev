@@ -1,0 +1,9 @@
+{
+  "name": "professor-alexeev",
+  "scripts": {
+    "scss": "node-sass --watch scss -o css"
+  },
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
