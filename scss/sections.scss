@@ -1,9 +1,7 @@
 section {
 
-  .resume-section {
-    min-height: 100vh;
-    padding-top: 3.5rem !important;
-  }
+  min-height: 100vh;
+  padding: 3.3rem 2rem 1rem 2rem;
 
   &#bibliography {
 
@@ -120,6 +118,24 @@ section {
   }
 }
 
+#sideNav {
+  .navbar-collapse {
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          color: white;
+          font-size: 1.1rem;
+          font-weight: 800;
+          letter-spacing: .05rem;
+          text-transform: uppercase;
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
 /**
  * Для экранов шириной > 768px.
  */
@@ -202,13 +218,17 @@ section {
           display: block;
 
           .nav-link {
-            display: block;
-            opacity: 1;
-
+            color: #6eb4ff;
             font-size: 1.1rem;
             font-weight: 800;
             letter-spacing: .05rem;
             text-transform: uppercase;
+            display: block;
+            opacity: 1;
+
+            &:hover {
+              color: white;
+            }
           }
         }
       }
@@ -217,10 +237,7 @@ section {
 
   section {
 
-    .resume-section {
-      min-height: 100vh;
-      padding-top: 1rem !important;
-    }
+    padding: 0.5rem 2rem 1rem 2rem;
 
     &#bibliography {
 

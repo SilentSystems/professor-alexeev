@@ -49,75 +49,75 @@ p {
   height: 1.1rem;
   margin: 0 0.1rem 0 0.5rem; }
 
-nav a .nav-link {
-  color: #6eb4ff; }
-  nav a .nav-link:hover {
-    color: white; }
-
-section .resume-section {
+section {
   min-height: 100vh;
-  padding-top: 3.5rem !important; }
-
-section#bibliography div.accordion div.card {
-  border: 1px solid #fefefe;
-  background-color: white; }
-  section#bibliography div.accordion div.card div.card-header {
-    border: none;
-    background-color: white;
-    padding-left: 0; }
-  section#bibliography div.accordion div.card div.card-body {
-    font-size: 0.9rem;
-    background-color: aliceblue;
-    padding: 0.8rem 1.1rem;
-    border-radius: 0.5rem;
-    overflow: hidden; }
-    section#bibliography div.accordion div.card div.card-body p:last-child {
-      margin-bottom: 0 !important; }
-    section#bibliography div.accordion div.card div.card-body div.images {
-      float: left;
-      max-width: 22rem;
-      margin-right: 3px; }
-      section#bibliography div.accordion div.card div.card-body div.images img {
-        width: 10rem;
-        margin-right: 1rem;
-        margin-bottom: 0.5rem;
-        margin-top: 0.3rem; }
-
-section#bibliography a.accordion-link {
-  cursor: pointer; }
-  section#bibliography a.accordion-link span {
-    margin-right: 0.5rem; }
-    section#bibliography a.accordion-link span .badge {
-      background-color: gainsboro;
-      font-size: 90%; }
-
-section#video div.media-container {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: start;
-  flex-wrap: wrap;
-  justify-content: flex-start; }
-  section#video div.media-container div.media {
+  padding: 3.3rem 2rem 1rem 2rem; }
+  section#bibliography div.accordion div.card {
+    border: 1px solid #fefefe;
+    background-color: white; }
+    section#bibliography div.accordion div.card div.card-header {
+      border: none;
+      background-color: white;
+      padding-left: 0; }
+    section#bibliography div.accordion div.card div.card-body {
+      font-size: 0.9rem;
+      background-color: aliceblue;
+      padding: 0.8rem 1.1rem;
+      border-radius: 0.5rem;
+      overflow: hidden; }
+      section#bibliography div.accordion div.card div.card-body p:last-child {
+        margin-bottom: 0 !important; }
+      section#bibliography div.accordion div.card div.card-body div.images {
+        float: left;
+        max-width: 22rem;
+        margin-right: 3px; }
+        section#bibliography div.accordion div.card div.card-body div.images img {
+          width: 10rem;
+          margin-right: 1rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.3rem; }
+  section#bibliography a.accordion-link {
+    cursor: pointer; }
+    section#bibliography a.accordion-link span {
+      margin-right: 0.5rem; }
+      section#bibliography a.accordion-link span .badge {
+        background-color: gainsboro;
+        font-size: 90%; }
+  section#video div.media-container {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: start;
-    align-items: flex-start;
-    flex-flow: column;
-    margin: 1rem 1rem 1rem 0;
-    max-width: 320px;
-    max-height: 320px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    border-radius: 5px; }
-    section#video div.media-container div.media div.media-body {
-      font-size: 75%; }
-      section#video div.media-container div.media div.media-body div.media-body p {
-        margin-bottom: 0.4rem; }
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    section#video div.media-container div.media {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      flex-flow: column;
+      margin: 1rem 1rem 1rem 0;
+      max-width: 320px;
+      max-height: 320px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      border-radius: 5px; }
+      section#video div.media-container div.media div.media-body {
+        font-size: 75%; }
+        section#video div.media-container div.media div.media-body div.media-body p {
+          margin-bottom: 0.4rem; }
+  section#contacts ul li {
+    margin-bottom: 0.5rem; }
+    section#contacts ul li span {
+      margin-left: 0.5rem; }
 
-section#contacts ul li {
-  margin-bottom: 0.5rem; }
-  section#contacts ul li span {
-    margin-left: 0.5rem; }
+#sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  display: block;
+  opacity: 1; }
 
 /**
  * Для экранов шириной > 768px.
@@ -179,14 +179,16 @@ section#contacts ul li {
         #sideNav .navbar-collapse .navbar-nav .nav-item {
           display: block; }
           #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
-            display: block;
-            opacity: 1;
+            color: #6eb4ff;
             font-size: 1.1rem;
             font-weight: 800;
             letter-spacing: .05rem;
-            text-transform: uppercase; }
-  section .resume-section {
-    min-height: 100vh;
-    padding-top: 1rem !important; }
-  section#bibliography div.accordion div.card-body img {
-    width: 10rem; } }
+            text-transform: uppercase;
+            display: block;
+            opacity: 1; }
+            #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+              color: white; }
+  section {
+    padding: 0.5rem 2rem 1rem 2rem; }
+    section#bibliography div.accordion div.card-body img {
+      width: 10rem; } }

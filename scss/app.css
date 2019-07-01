@@ -59,16 +59,9 @@ p {
   margin: 0 0.1rem 0 0.5rem;
 }
 
-nav a .nav-link {
-  color: #6eb4ff;
-}
-nav a .nav-link:hover {
-  color: white;
-}
-
-section .resume-section {
+section {
   min-height: 100vh;
-  padding-top: 3.5rem !important;
+  padding: 3.3rem 2rem 1rem 2rem;
 }
 section#bibliography div.accordion div.card {
   border: 1px solid #fefefe;
@@ -143,6 +136,16 @@ section#contacts ul li span {
   margin-left: 0.5rem;
 }
 
+#sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  display: block;
+  opacity: 1;
+}
+
 /**
  * Для экранов шириной > 768px.
  */
@@ -212,17 +215,20 @@ section#contacts ul li span {
     display: block;
   }
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
-    display: block;
-    opacity: 1;
+    color: #6eb4ff;
     font-size: 1.1rem;
     font-weight: 800;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
+    display: block;
+    opacity: 1;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+    color: white;
   }
 
-  section .resume-section {
-    min-height: 100vh;
-    padding-top: 1rem !important;
+  section {
+    padding: 0.5rem 2rem 1rem 2rem;
   }
   section#bibliography div.accordion div.card-body img {
     width: 10rem;
