@@ -1,7 +1,7 @@
 section {
 
   min-height: 100vh;
-  padding: 3.3rem 2rem 1rem 2rem;
+  padding: 3.3rem 1rem 1rem 1rem;
 
   &#bibliography {
 
@@ -36,13 +36,13 @@ section {
           div.images {
             float: left;
             max-width: 22rem;
-            margin-right: 3px;
+            margin-right: 5px;
 
             img {
-              width: 10rem;
-              margin-right: 1rem;
-              margin-bottom: 0.5rem;
-              margin-top: 0.3rem;
+              width: 7rem;
+              margin-right: 0.5rem;
+              margin-bottom: 0.3rem;
+              margin-top: 0.2rem;
             }
           }
 
@@ -136,9 +136,7 @@ section {
   }
 }
 
-/**
- * Для экранов шириной > 768px.
- */
+// Для экранов шириной > 768px.
 
 @media (min-width: 768px) {
 
@@ -243,8 +241,18 @@ section {
 
       div.accordion {
 
-        div.card-body img {
-          width: 10rem;
+        div.card {
+
+          div.card-body {
+
+            div.images {
+
+              img {
+                width: 10rem;
+                margin: 0.3rem 0.7rem 0.7rem 0;
+              }
+            }
+          }
         }
       }
     }

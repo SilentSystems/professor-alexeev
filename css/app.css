@@ -1,15 +1,5 @@
-@charset "UTF-8";
-/**
- * Fonts.
- */
-/**
- * Colors.
- */
 * {
   outline: 0 !important; }
-
-html {
-  min-width: 320px; }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -18,40 +8,31 @@ body {
   padding-top: 0; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Oswald", sans-serif; }
+  font-family: "Oswald", sans-serif;
+  color: #343a40;
+  margin: 1.5rem auto 1rem; }
 
 h1 {
-  font-size: 2.1rem;
-  color: #343a40;
-  margin: 1.5rem auto 1rem; }
+  font-size: 1.8rem; }
 
 h2 {
-  font-size: 1.7rem;
-  color: #343a40;
-  margin: 1.5rem auto 1rem; }
+  font-size: 1.6rem; }
 
 h3 {
-  font-size: 1.3rem;
-  color: #343a40;
-  margin: 1.5rem auto 1rem; }
+  font-size: 1.3rem; }
 
 h4 {
-  font-size: 1.1rem;
-  color: #343a40;
-  margin: 1.5rem auto 1rem; }
+  font-size: 1.1rem; }
 
 p {
   margin-bottom: 0.8rem; }
 
-.icon-custom {
-  display: inline-block;
-  width: 1rem;
-  height: 1.1rem;
-  margin: 0 0.1rem 0 0.5rem; }
+hr {
+  margin: 0; }
 
 section {
   min-height: 100vh;
-  padding: 3.3rem 2rem 1rem 2rem; }
+  padding: 3.3rem 1rem 1rem 1rem; }
   section#bibliography div.accordion div.card {
     border: 1px solid #fefefe;
     background-color: white; }
@@ -70,12 +51,12 @@ section {
       section#bibliography div.accordion div.card div.card-body div.images {
         float: left;
         max-width: 22rem;
-        margin-right: 3px; }
+        margin-right: 5px; }
         section#bibliography div.accordion div.card div.card-body div.images img {
-          width: 10rem;
-          margin-right: 1rem;
-          margin-bottom: 0.5rem;
-          margin-top: 0.3rem; }
+          width: 7rem;
+          margin-right: 0.5rem;
+          margin-bottom: 0.3rem;
+          margin-top: 0.2rem; }
   section#bibliography a.accordion-link {
     cursor: pointer; }
     section#bibliography a.accordion-link span {
@@ -119,9 +100,6 @@ section {
   display: block;
   opacity: 1; }
 
-/**
- * Для экранов шириной > 768px.
- */
 @media (min-width: 768px) {
   body {
     padding-left: 20rem; }
@@ -190,5 +168,6 @@ section {
               color: white; }
   section {
     padding: 0.5rem 2rem 1rem 2rem; }
-    section#bibliography div.accordion div.card-body img {
-      width: 10rem; } }
+    section#bibliography div.accordion div.card div.card-body div.images img {
+      width: 10rem;
+      margin: 0.3rem 0.7rem 0.7rem 0; } }
