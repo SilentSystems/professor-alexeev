@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="0">
 
 <header>
 
@@ -44,24 +44,28 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggler">
+            <hr class="bg-white my-2">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">О профессоре</a>
+                    <a class="nav-link active" href="#about">О профессоре</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#theory">Суть теории</a>
+                    <a class="nav-link" href="#theory">Суть теории</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#articles">Статьи</a>
+                    <a class="nav-link" href="#articles">Статьи</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#bibliography">Библиография</a>
+                    <a class="nav-link" href="#bibliography">Библиография</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#video">Видео</a>
+                    <a class="nav-link" href="#photo">Фото</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contacts">Контакты</a>
+                    <a class="nav-link" href="#video">Видео</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacts">Контакты</a>
                 </li>
             </ul>
         </div>
@@ -201,7 +205,7 @@
 
         </article>
 
-            <hr>
+            <hr class="my-5">
 
         <article>
 
@@ -224,6 +228,21 @@
     </section>
 
     <hr>
+
+    <section id="photo">
+        <article>
+
+
+            <h1 class="text-uppercase">
+                Фото
+            </h1>
+
+            <p>
+                Раздел в разработке...
+            </p>
+
+        </article>
+    </section>
 
     <section id="video">
         <article>
@@ -280,8 +299,8 @@
     <div class="card">
         <div class="card-header" id="heading{{ id }}">
             <strong class="mb-0">
-                <a class="accordion-link" data-toggle="collapse" data-target="#collapse{{ id }}"
-                   aria-expanded="false" aria-controls="collapse{{ id }}" title="Нажмите, чтобы развернуть / свернуть.">
+<!--                <a class="accordion-link" data-toggle="collapse" data-target="#collapse{{ id }}" aria-expanded="false" aria-controls="collapse{{ id }}" title="Нажмите, чтобы развернуть / свернуть.">-->
+                <a class="accordion-link">
                     <span class="badge badge-light">
                         {{ id }}.
                     </span>
@@ -294,7 +313,7 @@
                 </a>
             </strong>
         </div>
-        <div id="collapse{{ id }}" class="collapse" aria-labelledby="heading{{ id }}" data-parent="#bibliography-container">
+        <div id="collapse{{ id }}" class="" aria-labelledby="heading{{ id }}" data-parent="#bibliography-container">
             <div class="card-body">
                 <div class="images">
                     {{ images }}

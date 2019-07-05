@@ -98,7 +98,8 @@ section {
   letter-spacing: .05rem;
   text-transform: uppercase;
   display: block;
-  opacity: 1; }
+  opacity: 1;
+  padding: .4rem 0.1rem; }
 
 @media (min-width: 768px) {
   body {
@@ -166,6 +167,8 @@ section {
             opacity: 1; }
             #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
               color: white; }
+            #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link.active {
+              color: #ffffff !important; }
   section {
     padding: 0.5rem 2rem 1rem 2rem; }
     section#bibliography div.accordion div.card div.card-body div.images img {
