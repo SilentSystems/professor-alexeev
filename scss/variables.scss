@@ -7,3 +7,10 @@ $headers-font: 'Oswald', sans-serif;
 
 $headers-font-color: #343a40;
 $common-font-color: black;
+
+%flex-base {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}

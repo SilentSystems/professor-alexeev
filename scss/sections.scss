@@ -69,18 +69,14 @@ section {
   &#video {
 
     div.media-container {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: start;
+      @extend %flex-base;
 
-      flex-wrap: wrap;
       justify-content: flex-start;
+      flex-wrap: wrap;
 
       div.media {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: start;
-        align-items: flex-start;
+        @extend %flex-base;
+
         flex-flow: column;
 
         margin: 1rem 1rem 1rem 0;
