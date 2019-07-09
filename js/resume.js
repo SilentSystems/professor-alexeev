@@ -39,6 +39,10 @@ function openPopup (elem) {
         }
     });
 
+    $(window).on('scroll', function() {
+        // location.hash = $('#sideNav a.nav-link.active').first().attr('href');
+    });
+
     /**
      * Закрытие меню после клика на пункт (в мобильном режиме).
      */

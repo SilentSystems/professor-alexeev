@@ -1,6 +1,8 @@
 section#video div.media-container, section#video div.media-container div.media {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start; }
 
@@ -60,9 +62,7 @@ section {
         margin-right: 5px; }
         section#bibliography div.accordion div.card div.card-body div.images img {
           width: 7rem;
-          margin-right: 0.5rem;
-          margin-bottom: 0.3rem;
-          margin-top: 0.2rem; }
+          margin: 0.2rem 0.5rem 0.3rem 0; }
   section#bibliography a.accordion-link {
     cursor: pointer; }
     section#bibliography a.accordion-link span {
@@ -78,8 +78,7 @@ section {
       margin: 1rem 1rem 1rem 0;
       max-width: 320px;
       max-height: 320px;
-      overflow-x: hidden;
-      overflow-y: hidden;
+      overflow: hidden hidden;
       border-radius: 5px; }
       section#video div.media-container div.media div.media-body {
         font-size: 75%; }
@@ -98,34 +97,36 @@ section {
   text-transform: uppercase;
   display: block;
   opacity: 1;
-  padding: .4rem 0.1rem; }
+  padding: 0.4rem 0.1rem; }
 
 @media (min-width: 768px) {
+  #sideNav, #sideNav .navbar-brand, #sideNav .navbar-collapse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  #sideNav, #sideNav .navbar-collapse .navbar-nav {
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column; }
   body {
     padding-left: 20rem; }
   #sideNav {
     position: fixed;
     top: 0;
-    left: 0;
     right: auto;
     bottom: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    left: 0;
     width: 20rem;
-    -ms-flex-direction: column;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
     text-align: center; }
     #sideNav .navbar-brand {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
       margin: 1rem auto 1rem auto;
       padding: 0.5rem; }
     #sideNav .navbar-toggler {
-      padding: .25rem .5rem;
+      padding: 0.25rem 0.5rem;
       font-size: 1.25rem;
       line-height: 1;
       background-color: transparent;
@@ -137,37 +138,27 @@ section {
       max-height: 18rem;
       border: 0.4rem solid rgba(255, 255, 255, 0.1); }
     #sideNav .navbar-collapse {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: start;
-      -ms-flex-align: start;
-      align-items: flex-start;
       -webkit-box-flex: 0;
       -ms-flex-positive: 0;
       flex-grow: 0;
       width: 100%;
       margin-bottom: auto; }
       #sideNav .navbar-collapse .navbar-nav {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
         width: 100%; }
         #sideNav .navbar-collapse .navbar-nav .nav-item {
           display: block; }
           #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+            display: block;
             color: #6eb4ff;
             font-size: 1.1rem;
             font-weight: 800;
-            letter-spacing: .05rem;
+            letter-spacing: 0.05rem;
             text-transform: uppercase;
-            display: block;
             opacity: 1; }
             #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
               color: white; }
             #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link.active {
-              color: #ffffff !important; }
+              color: white !important; }
   section {
     padding: 0.5rem 2rem 1rem 2rem; }
     section#bibliography div.accordion div.card div.card-body div.images img {
