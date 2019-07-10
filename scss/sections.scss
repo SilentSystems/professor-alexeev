@@ -5,33 +5,45 @@ section {
 
   &#bibliography {
 
-    div.accordion {
+    ul {
+      list-style: none;
+      padding: 0;
 
-      div.card {
+      li {
+        margin: 0 0 1rem 0;
         border: 1px solid #fefefe;
         background-color: white;
 
-        div.card-header {
+        div.header {
           border: none;
           background-color: white;
           padding-left: 0;
-        }
 
-        div.card-body {
-          font-size: 0.9rem;
+          h2 {
+            font-family: $common-font;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0.2rem 0 0.2rem 0;
 
-          background-color: aliceblue;
+            span.badge {
+              margin-right: 0.5rem;
+              background-color: gainsboro;
+              font-size: 90%;
+            }
 
-          padding: 0.8rem 1.1rem;
-          border-radius: 0.5rem;
-
-          overflow: hidden;
-
-          p {
-            &:last-child {
-              margin-bottom: 0 !important;
+            small {
+              color: #6c757d;
+              line-height: 2rem;
             }
           }
+        }
+
+        div.body {
+          font-size: 0.9rem;
+          background-color: aliceblue;
+          padding: 0.8rem 1.1rem;
+          border-radius: 0.5rem;
+          overflow: hidden;
 
           div.images {
             float: left;
@@ -39,26 +51,13 @@ section {
             margin-right: 5px;
 
             img {
-              width: 7rem;
+              height: 7rem;
               margin: 0.2rem 0.5rem 0.3rem 0;
             }
           }
 
           div.description {
           }
-        }
-      }
-    }
-
-    a.accordion-link {
-      cursor: pointer;
-
-      span {
-        margin-right: 0.5rem;
-
-        .badge {
-          background-color: gainsboro;
-          font-size: 90%;
         }
       }
     }
@@ -127,139 +126,6 @@ section {
           opacity: 1;
 
           padding: 0.4rem 0.1rem;
-        }
-      }
-    }
-  }
-}
-
-// Для экранов шириной > 768px.
-
-@media (min-width: 768px) {
-
-  %flex-base2 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-  }
-
-  %flex-direction-column2 {
-    -ms-flex-direction: column;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-  }
-
-  body {
-    padding-left: 20rem;
-  }
-
-  #sideNav {
-    position: fixed;
-    top: 0;
-    right: auto;
-    bottom: 0;
-    left: 0;
-
-    width: 20rem;
-
-    text-align: center;
-
-    @extend %flex-base2;
-    @extend %flex-direction-column2;
-
-    .navbar-brand {
-      @extend %flex-base2;
-
-      margin: 1rem auto 1rem auto;
-      padding: 0.5rem;
-    }
-
-    .navbar-toggler {
-      padding: 0.25rem 0.5rem;
-
-      font-size: 1.25rem;
-      line-height: 1;
-
-      background-color: transparent;
-
-      border: 1px solid transparent;
-      border-radius: .25rem;
-      margin-right: 0.2rem;
-    }
-
-    .img-profile {
-      max-width: 18rem;
-      max-height: 18rem;
-      border: 0.4rem solid rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar-collapse {
-      @extend %flex-base2;
-
-      -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-      flex-grow: 0;
-
-      width: 100%;
-      margin-bottom: auto;
-
-      .navbar-nav {
-        @extend %flex-direction-column2;
-
-        width: 100%;
-
-        .nav-item {
-          display: block;
-
-          .nav-link {
-            display: block;
-
-            color: #6eb4ff;
-
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: 0.05rem;
-            text-transform: uppercase;
-
-            opacity: 1;
-
-            &:hover {
-              color: white;
-            }
-
-            &.active {
-              color: white !important;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  section {
-
-    padding: 0.5rem 2rem 1rem 2rem;
-
-    &#bibliography {
-
-      div.accordion {
-
-        div.card {
-
-          div.card-body {
-
-            div.images {
-
-              img {
-                width: 10rem;
-                margin: 0.3rem 0.7rem 0.7rem 0;
-              }
-            }
-          }
         }
       }
     }

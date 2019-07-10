@@ -41,35 +41,42 @@ hr {
 section {
   min-height: 100vh;
   padding: 3.3rem 1rem 1rem 1rem; }
-  section#bibliography div.accordion div.card {
-    border: 1px solid #fefefe;
-    background-color: white; }
-    section#bibliography div.accordion div.card div.card-header {
-      border: none;
-      background-color: white;
-      padding-left: 0; }
-    section#bibliography div.accordion div.card div.card-body {
-      font-size: 0.9rem;
-      background-color: aliceblue;
-      padding: 0.8rem 1.1rem;
-      border-radius: 0.5rem;
-      overflow: hidden; }
-      section#bibliography div.accordion div.card div.card-body p:last-child {
-        margin-bottom: 0 !important; }
-      section#bibliography div.accordion div.card div.card-body div.images {
-        float: left;
-        max-width: 22rem;
-        margin-right: 5px; }
-        section#bibliography div.accordion div.card div.card-body div.images img {
-          width: 7rem;
-          margin: 0.2rem 0.5rem 0.3rem 0; }
-  section#bibliography a.accordion-link {
-    cursor: pointer; }
-    section#bibliography a.accordion-link span {
-      margin-right: 0.5rem; }
-      section#bibliography a.accordion-link span .badge {
-        background-color: gainsboro;
-        font-size: 90%; }
+  section#bibliography ul {
+    list-style: none;
+    padding: 0; }
+    section#bibliography ul li {
+      margin: 0 0 1rem 0;
+      border: 1px solid #fefefe;
+      background-color: white; }
+      section#bibliography ul li div.header {
+        border: none;
+        background-color: white;
+        padding-left: 0; }
+        section#bibliography ul li div.header h2 {
+          font-family: "Open Sans", sans-serif;
+          font-size: 1rem;
+          font-weight: bold;
+          margin: 0.2rem 0 0.2rem 0; }
+          section#bibliography ul li div.header h2 span.badge {
+            margin-right: 0.5rem;
+            background-color: gainsboro;
+            font-size: 90%; }
+          section#bibliography ul li div.header h2 small {
+            color: #6c757d;
+            line-height: 2rem; }
+      section#bibliography ul li div.body {
+        font-size: 0.9rem;
+        background-color: aliceblue;
+        padding: 0.8rem 1.1rem;
+        border-radius: 0.5rem;
+        overflow: hidden; }
+        section#bibliography ul li div.body div.images {
+          float: left;
+          max-width: 22rem;
+          margin-right: 5px; }
+          section#bibliography ul li div.body div.images img {
+            height: 7rem;
+            margin: 0.2rem 0.5rem 0.3rem 0; }
   section#video div.media-container {
     justify-content: flex-start;
     flex-wrap: wrap; }
@@ -161,6 +168,6 @@ section {
               color: white !important; }
   section {
     padding: 0.5rem 2rem 1rem 2rem; }
-    section#bibliography div.accordion div.card div.card-body div.images img {
-      width: 10rem;
+    section#bibliography ul li div.body div.images img {
+      height: 12rem;
       margin: 0.3rem 0.7rem 0.7rem 0; } }

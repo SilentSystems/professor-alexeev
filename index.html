@@ -27,7 +27,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="0">
+<body>
 
 <header>
 
@@ -199,9 +199,9 @@
                 Библиография
             </h1>
 
-            <div class="accordion" id="bibliography-container">
+            <ul id="bibliography-container">
                 <!-- Список книг "Библиография". -->
-            </div>
+            </ul>
 
         </article>
 
@@ -298,34 +298,29 @@
 <!-- Шаблон элемента списка книг "Библиография". -->
 
 <template id="bibliography-item">
-    <div class="card">
-        <div class="card-header" id="heading{{ id }}">
-            <strong class="mb-0">
-<!--                <a class="accordion-link" data-toggle="collapse" data-target="#collapse{{ id }}" aria-expanded="false" aria-controls="collapse{{ id }}" title="Нажмите, чтобы развернуть / свернуть.">-->
-                <a class="accordion-link">
-                    <span class="badge badge-light">
-                        {{ id }}.
-                    </span>
-                    {{ name }}
-                    <br>
-                    <small class="text-muted">
-                        <strong>{{ authors }}</strong>
-                        <em class="ml-3">{{ description }}</em>
-                    </small>
-                </a>
-            </strong>
+    <li>
+        <div class="header">
+            <h2>
+                <span class="badge badge-light">
+                    {{ id }}.
+                </span>
+                {{ name }}
+                <br>
+                <small>
+                    <strong>{{ authors }}</strong>
+                    <em class="ml-2">{{ description }}</em>
+                </small>
+            </h2>
         </div>
-        <div id="collapse{{ id }}" class="" aria-labelledby="heading{{ id }}" data-parent="#bibliography-container">
-            <div class="card-body">
-                <div class="images">
-                    {{ images }}
-                </div>
-                <div class="description">
-                    {{ paragraphs }}
-                </div>
+        <div class="body">
+            <div class="images">
+                {{ images }}
+            </div>
+            <div class="description">
+                {{ paragraphs }}
             </div>
         </div>
-    </div>
+    </li>
 </template>
 
 <!-- Шаблон элемента списка видео. -->
@@ -347,8 +342,9 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
 
 <!-- Plugin for easing effect -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>

@@ -22,6 +22,10 @@ function openPopup (elem) {
             location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '')
             && location.hostname === this.hostname
         ) {
+
+            $('nav a.nav-link').removeClass('active');
+            $(this).addClass('active');
+
             var hash = this.hash;
             var target = $(hash);
 
@@ -36,6 +40,7 @@ function openPopup (elem) {
 
                 return false;
             }
+
         }
     });
 
@@ -47,7 +52,7 @@ function openPopup (elem) {
      * Закрытие меню после клика на пункт (в мобильном режиме).
      */
     $('nav a.nav-link').click(function() {
-        $('.navbar-collapse').collapse('hide');
+        // $('.navbar-collapse').hide('slow');
     });
 
     /**
