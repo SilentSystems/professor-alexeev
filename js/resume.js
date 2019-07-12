@@ -14,16 +14,31 @@ function openPopup (elem) {
 
 (function($) {
 
-    /**
-     * Плавный скролл по секциям.
-     */
-    $('nav a.nav-link[href*="#"]:not([href="#"])').click(function() {
-        if (
-            location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '')
-            && location.hostname === this.hostname
-        ) {
+    var hashLinks = $('nav a.nav-link[href*="#"]:not([href="#"])');
 
-            $('nav a.nav-link').removeClass('active');
+    var hashSections = [];
+
+    hashLinks.each(function (index) {
+        hashSections.push($('section' + this.hash));
+    });
+
+    /**
+     * Клик по ссылкам меню и плавный скролл по секциям.
+     */
+    hashLinks.click(function(e) {
+        var locationPathname = location.pathname.replace(/^\//, '');
+        var thisPathname = this.pathname.replace(/^\//, '');
+
+        if (
+            locationPathname === thisPathname
+            && location.hostname === this.hostname
+            && location.hash !== this.hash
+        ) {
+            e.preventDefault();
+
+            console.log(e);
+
+            hashLinks.removeClass('active');
             $(this).addClass('active');
 
             var hash = this.hash;
@@ -40,18 +55,35 @@ function openPopup (elem) {
 
                 return false;
             }
-
         }
     });
 
-    $(window).on('scroll', function() {
-        // location.hash = $('#sideNav a.nav-link.active').first().attr('href');
+    /**
+     * Изменения в пунктах меню и в URL-хеше при скролле страницы.
+     */
+    $(window).on('scroll', function(e) {
+        var shift = 10;
+        var fromTop = $(this).scrollTop() + shift;
+        hashSections.map(function (item) {
+            var offsetTop = item.offset().top;
+            if (fromTop > offsetTop) {
+                console.log($(item).attr('id'), fromTop, offsetTop);
+
+                hashLinks.removeClass('active');
+                hashLinks.filter(function (subItem) {
+                    if (subItem.href === '#' + item.id) {
+                        console.log('###', subItem);
+                        return subItem;
+                    }
+                }).addClass('active');
+            }
+        });
     });
 
     /**
      * Закрытие меню после клика на пункт (в мобильном режиме).
      */
-    $('nav a.nav-link').click(function() {
+    hashLinks.click(function() {
         // $('.navbar-collapse').hide('slow');
     });
 
