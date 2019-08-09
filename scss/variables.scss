@@ -8,7 +8,10 @@ $headers-font: 'Oswald', sans-serif;
 $headers-font-color: #343a40;
 $common-font-color: black;
 
-%flex-base {
+// Media width
+$mobile-max-width: 768px;
+
+@mixin flex-base {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,7 +20,7 @@ $common-font-color: black;
   align-items: flex-start;
 }
 
-%flex-direction-column {
+@mixin flex-direction-column {
   -ms-flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
