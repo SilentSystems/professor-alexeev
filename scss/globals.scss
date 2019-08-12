@@ -6,8 +6,8 @@ html {
 }
 
 body {
-  font-family: $common-font;
-  font-size: 1rem;
+  font-family: $common-font-family;
+  font-size: $common-font-size;
   color: $common-font-color;
   padding-top: 0;
 
@@ -17,25 +17,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $headers-font;
+  font-family: $headers-font-family;
   color: $headers-font-color;
   margin: 1.5rem auto 1rem;
 }
 
-h1 {
-  font-size: 1.8rem;
-}
-
-h2 {
-  font-size: 1.6rem;
-}
-
-h3 {
-  font-size: 1.3rem;
-}
-
-h4 {
-  font-size: 1.1rem;
+@for $i from 1 through 6 {
+  h#{$i} { font-size: $headers-font-size - 0.2 * $i; }
 }
 
 p {

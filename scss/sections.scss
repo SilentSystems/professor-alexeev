@@ -21,8 +21,8 @@
     }
 
     .navbar-toggler {
-      padding: 0.25rem 0.5rem;
       margin-right: 0.2rem;
+      padding: 0.25rem 0.5rem;
       color: $headers-font-color;
       background-color: transparent;
       font: {
@@ -71,13 +71,13 @@
 
         .nav-link {
           display: block;
+          padding: 0.4rem 0.1rem;
           color: white;
           font: {
             size: 1.1rem;
             weight: 800;
           }
           text-transform: uppercase;
-          padding: 0.4rem 0.1rem;
           @media (min-width: $mobile-max-width) {
             color: #6eb4ff;
 
@@ -120,12 +120,12 @@ section {
           padding-left: 0;
 
           h2 {
+            margin: 0.2rem 0 0.2rem 0;
             font: {
-              family: $common-font;
-              size: 1rem;
+              family: $common-font-family;
+              size: $common-font-size;
               weight: bold;
             }
-            margin: 0.2rem 0 0.2rem 0;
 
             span.badge {
               margin-right: 0.5rem;
