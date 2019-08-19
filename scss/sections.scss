@@ -2,7 +2,7 @@
 // Для экранов шириной > 768px.
 @media (min-width: $mobile-max-width) {}
 
-#sideNav {
+header nav {
   @media (min-width: $mobile-max-width) {
     position: fixed;
     top: 0;

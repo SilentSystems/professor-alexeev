@@ -1,17 +1,8 @@
-@font-face {
-  font-family: 'Open Sans';
-  src: url("../fonts/Open_Sans/OpenSans-Regular.ttf");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Oswald';
-  src: url("../fonts/Oswald/Oswald-SemiBold.ttf");
-  font-weight: normal;
-  font-style: normal; }
-
 * {
   outline: 0 !important; }
+
+html {
+  max-width: 1920px; }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -34,16 +25,10 @@ h2 {
   font-size: 1.6rem; }
 
 h3 {
-  font-size: 1.4rem; }
+  font-size: 1.3rem; }
 
 h4 {
-  font-size: 1.2rem; }
-
-h5 {
-  font-size: 1rem; }
-
-h6 {
-  font-size: 0.8rem; }
+  font-size: 1.1rem; }
 
 p {
   margin-bottom: 0.8rem; }
@@ -52,7 +37,7 @@ hr {
   margin: 0; }
 
 @media (min-width: 768px) {
-  #sideNav {
+  header nav {
     position: fixed;
     top: 0;
     right: auto;
@@ -70,7 +55,7 @@ hr {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column; }
-    #sideNav .navbar-brand {
+    header nav .navbar-brand {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -79,9 +64,9 @@ hr {
       align-items: flex-start;
       margin: 1rem auto 1rem auto;
       padding: 0.5rem; }
-    #sideNav .navbar-toggler {
-      margin-right: 0.2rem;
+    header nav .navbar-toggler {
       padding: 0.25rem 0.5rem;
+      margin-right: 0.2rem;
       color: #343a40;
       background-color: transparent;
       font-size: 1.25rem;
@@ -90,7 +75,7 @@ hr {
       border-style: solid;
       border-color: transparent;
       border-radius: .25rem; }
-    #sideNav .img-profile {
+    header nav .img-profile {
       max-width: 18rem;
       max-height: 18rem;
       border-width: 0.4rem;
@@ -98,7 +83,7 @@ hr {
       border-color: rgba(255, 255, 255, 0.1); } }
 
 @media (min-width: 768px) {
-  #sideNav .navbar-collapse {
+  header nav .navbar-collapse {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -112,7 +97,7 @@ hr {
     margin-bottom: auto; } }
 
 @media (min-width: 768px) {
-  #sideNav .navbar-collapse .navbar-nav {
+  header nav .navbar-collapse .navbar-nav {
     -ms-flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -120,22 +105,22 @@ hr {
     width: 100%; } }
 
 @media (min-width: 768px) {
-  #sideNav .navbar-collapse .navbar-nav .nav-item {
+  header nav .navbar-collapse .navbar-nav .nav-item {
     display: block; } }
 
-#sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+header nav .navbar-collapse .navbar-nav .nav-item .nav-link {
   display: block;
-  padding: 0.4rem 0.1rem;
   color: white;
   font-size: 1.1rem;
   font-weight: 800;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding: 0.4rem 0.1rem; }
   @media (min-width: 768px) {
-    #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    header nav .navbar-collapse .navbar-nav .nav-item .nav-link {
       color: #6eb4ff; }
-      #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+      header nav .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
         color: white; }
-      #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link.active {
+      header nav .navbar-collapse .navbar-nav .nav-item .nav-link.active {
         color: white !important; } }
 
 section {
@@ -156,10 +141,10 @@ section {
         background-color: white;
         padding-left: 0; }
         section#bibliography ul li div.header h2 {
-          margin: 0.2rem 0 0.2rem 0;
           font-family: "Open Sans", sans-serif;
           font-size: 1rem;
-          font-weight: bold; }
+          font-weight: bold;
+          margin: 0.2rem 0 0.2rem 0; }
           section#bibliography ul li div.header h2 span.badge {
             margin-right: 0.5rem;
             background-color: gainsboro;
