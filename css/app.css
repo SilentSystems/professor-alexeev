@@ -1,8 +1,20 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/Open_Sans/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Oswald';
+  src: url("../fonts/Oswald/Oswald-SemiBold.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
 * {
   outline: 0 !important; }
 
 html {
-  max-width: 1920px; }
+  max-width: 1600px; }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -25,10 +37,16 @@ h2 {
   font-size: 1.6rem; }
 
 h3 {
-  font-size: 1.3rem; }
+  font-size: 1.4rem; }
 
 h4 {
-  font-size: 1.1rem; }
+  font-size: 1.2rem; }
+
+h5 {
+  font-size: 1rem; }
+
+h6 {
+  font-size: 0.8rem; }
 
 p {
   margin-bottom: 0.8rem; }
@@ -65,8 +83,8 @@ hr {
       margin: 1rem auto 1rem auto;
       padding: 0.5rem; }
     header nav .navbar-toggler {
-      padding: 0.25rem 0.5rem;
       margin-right: 0.2rem;
+      padding: 0.25rem 0.5rem;
       color: #343a40;
       background-color: transparent;
       font-size: 1.25rem;
@@ -110,11 +128,11 @@ hr {
 
 header nav .navbar-collapse .navbar-nav .nav-item .nav-link {
   display: block;
+  padding: 0.4rem 0.1rem;
   color: white;
   font-size: 1.1rem;
   font-weight: 800;
-  text-transform: uppercase;
-  padding: 0.4rem 0.1rem; }
+  text-transform: uppercase; }
   @media (min-width: 768px) {
     header nav .navbar-collapse .navbar-nav .nav-item .nav-link {
       color: #6eb4ff; }
@@ -125,7 +143,8 @@ header nav .navbar-collapse .navbar-nav .nav-item .nav-link {
 
 section {
   min-height: 100vh;
-  padding: 3.3rem 1rem 1rem 1rem; }
+  padding: 3.3rem 1rem 1rem 1rem;
+  text-align: justify; }
   @media (min-width: 768px) {
     section {
       padding: 0.5rem 2rem 1rem 2rem; } }
@@ -141,10 +160,10 @@ section {
         background-color: white;
         padding-left: 0; }
         section#bibliography ul li div.header h2 {
+          margin: 0.2rem 0 0.2rem 0;
           font-family: "Open Sans", sans-serif;
           font-size: 1rem;
-          font-weight: bold;
-          margin: 0.2rem 0 0.2rem 0; }
+          font-weight: bold; }
           section#bibliography ul li div.header h2 span.badge {
             margin-right: 0.5rem;
             background-color: gainsboro;
