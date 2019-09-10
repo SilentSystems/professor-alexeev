@@ -3,54 +3,97 @@
 @media (min-width: $mobile-max-width) {}
 
 header nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+
+  display: none;
+
+  width: auto;
+  height: 10rem;
+
   @media (min-width: $mobile-max-width) {
+
     position: fixed;
     top: 0;
     right: auto;
     bottom: 0;
     left: 0;
-    width: 20rem;
-    text-align: center;
-    @include flex-base;
+    z-index: 1030;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
     @include flex-direction-column;
+    justify-content: flex-start;
+    align-items: center;
 
-    .navbar-brand {
-      @include flex-base;
-      margin: 1rem auto 1rem auto;
-      padding: 0.5rem;
+    width: 20rem;
+    height: auto;
+
+    text-align: center;
+
+    background-color: #007bff !important;
+  }
+
+  .navbar-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    margin: 1rem auto 1rem auto;
+    padding: 1rem;
+
+    h1 {
+      display: flex;
+      color: white;
+      font-size: 1rem;
+      @media (min-width: $mobile-max-width) {
+        display: none;
+      }
     }
 
-    .navbar-toggler {
-      margin-right: 0.2rem;
-      padding: 0.25rem 0.5rem;
-      color: $headers-font-color;
-      background-color: transparent;
-      font: {
-        size: 1.25rem;
-      }
-      line-height: 1;
-      border: {
-        width: 1px;
-        style: solid;
-        color: transparent;
-        radius: .25rem;
+    img {
+      display: none;
+      @media (min-width: $mobile-max-width) {
+        display: flex;
+        max-width: 17rem;
+        max-height: 17rem;
+        border: {
+          width: 0.4rem;
+          style: solid;
+          color: rgba(255, 255, 255, 0.1);
+        }
       }
     }
+  }
 
-    .img-profile {
-      max-width: 18rem;
-      max-height: 18rem;
-      border: {
-        width: 0.4rem;
-        style: solid;
-        color: rgba(255, 255, 255, 0.1);
-      }
+  button.nav-toggler {
+    display: none;
+
+    margin-right: 0.2rem;
+    padding: 0.25rem 0.5rem;
+    color: $headers-font-color;
+    background-color: transparent;
+    font: {
+      size: 1.25rem;
+    }
+    line-height: 1;
+    border: {
+      width: 1px;
+      style: solid;
+      color: transparent;
+      radius: .25rem;
     }
   }
 
   .navbar-collapse {
     @media (min-width: $mobile-max-width) {
-      @include flex-base;
+      @include display-flex;
+      @include flex-align-start;
       -webkit-box-flex: 0;
       -ms-flex-positive: 0;
       flex-grow: 0;
@@ -98,7 +141,10 @@ header nav {
 section {
   min-height: 100vh;
   padding: 3.3rem 1rem 1rem 1rem;
-  text-align: justify;
+
+  p {
+    text-align: justify;
+  }
 
   @media (min-width: $mobile-max-width) {
     padding: 0.5rem 2rem 1rem 2rem;
@@ -177,12 +223,14 @@ section {
   &#video {
 
     div.media-container {
-      @include flex-base;
+      @include display-flex;
+      @include flex-align-start;
       justify-content: flex-start;
       flex-wrap: wrap;
 
       div.media {
-        @include flex-base;
+        @include display-flex;
+        @include flex-align-start;
         flex-flow: column;
         margin: 1rem 1rem 1rem 0;
         max-width: 320px;
