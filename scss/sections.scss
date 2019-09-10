@@ -251,6 +251,40 @@ section {
     }
   }
 
+  &#photo {
+
+    div.media-container {
+      @include display-flex;
+      @include flex-align-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      div.media {
+        @include display-flex;
+        @include flex-align-start;
+        flex-flow: column;
+        margin: 1rem 1rem 1rem 0;
+        max-width: 320px;
+        max-height: 320px;
+        overflow: hidden hidden;
+        border: {
+          radius: 5px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          cursor: pointer;
+        }
+
+        div.media-body {
+          font-size: 75%;
+        }
+      }
+    }
+  }
+
   &#contacts {
 
     ul {

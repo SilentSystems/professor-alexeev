@@ -1,15 +1,32 @@
 /**
- * Попапы для открытия видео.
+ * Попапы для открытия видео и фото.
  */
-function openPopup (elem) {
+function open_popup (elem, coef = 2) {
+
     window.open(
-        elem.href,
+        (elem.href) ? elem.href : elem.src,
         '',
-        'width=' + screen.availWidth / 2 + ', height=' + screen.availHeight / 2 + ', top='
-            + screen.availHeight / 4 + ', left=' + screen.availWidth / 4
+        'width=' + (screen.availWidth / coef) + ', height=' + (screen.availHeight / coef) + ', top='
+            + (screen.availHeight / coef / 2) + ', left=' + (screen.availWidth / coef / 2)
     );
 
     return false;
+}
+
+function auto_size(img, maxwidth, maxheight) {
+    if (img.width > maxwidth) {
+        width = img.width;
+        height = img.height;
+        img.width = maxwidth;
+        img.height = (maxwidth * height) / width;
+    }
+
+    if (img.height > maxheight) {
+        width = img.width;
+        height = img.height;
+        img.height = maxheight;
+        img.width = (maxheight * width) / height;
+    }
 }
 
 (function($) {
@@ -223,6 +240,35 @@ function openPopup (elem) {
 
             container.html(html);
 
+        })
+
+    ;
+
+    /**
+     * Загрузка данных в раздел "Фото".
+     */
+    $.getJSON( 'data/photo.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+            var container = $('#photo-container');
+            var template = $('#photo-item');
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+                var elem = json[i];
+                var item = template.html()
+                    .replace(/{{ name }}/g, elem.name)
+                    .replace(/{{ alt }}/g, elem.alt)
+                ;
+                html += item;
+            }
+
+            container.html(html);
         })
 
     ;

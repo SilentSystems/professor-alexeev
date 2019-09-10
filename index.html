@@ -32,7 +32,7 @@
             <h1>
                 Профессор Алексеев А. А.
             </h1>
-            <img class="rounded-circle" src="/images/photos/alexeev_top_squared.jpg" alt="Профессор Алексеев А. А.">
+            <img class="rounded-circle" src="/images/avatars/alexeev_top_squared.jpg" alt="Профессор Алексеев А. А.">
         </a>
         <button class="nav-toggler" title="Переключение навигации">
             <span class="navbar-toggler-icon"></span>
@@ -231,9 +231,9 @@
                 Фото
             </h1>
 
-            <p>
-                Раздел в разработке...
-            </p>
+            <div class="media-container" id="photo-container">
+                <!-- Список фото. -->
+            </div>
 
         </article>
     </section>
@@ -321,8 +321,8 @@
 
 <template id="video-item">
     <div class="media">
-        <a href="http://www.youtube.com/embed/{{ code }}" onClick="openPopup(this); return false;">
-            <img src="http://img.youtube.com/vi/{{ code }}/mqdefault.jpg" title="" alt="">
+        <a href="https://www.youtube.com/embed/{{ code }}" onClick="open_popup(this); return false;">
+            <img src="https://img.youtube.com/vi/{{ code }}/mqdefault.jpg" alt="">
         </a>
         <div class="media-body">
             <h6 class="mt-3 mb-2">
@@ -330,6 +330,14 @@
             </h6>
             {{ paragraphs }}
         </div>
+    </div>
+</template>
+
+<!-- Шаблон элемента списка фото. -->
+
+<template id="photo-item">
+    <div class="media">
+        <img src="/images/sections/photo/{{ name }}.jpg" onClick="open_popup(this, 1); return false;" alt="{{ alt }}">
     </div>
 </template>
 
