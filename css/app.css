@@ -223,8 +223,8 @@ section {
       align-items: flex-start;
       flex-flow: column;
       margin: 1rem 1rem 1rem 0;
-      max-width: 320px;
-      max-height: 320px;
+      max-width: 280px;
+      max-height: 280px;
       overflow: hidden hidden;
       border-radius: 5px; }
       section#video div.media-container div.media div.media-body {
@@ -249,8 +249,8 @@ section {
       align-items: flex-start;
       flex-flow: column;
       margin: 1rem 1rem 1rem 0;
-      max-width: 320px;
-      max-height: 320px;
+      max-width: 280px;
+      max-height: 280px;
       overflow: hidden hidden;
       border-radius: 5px; }
       section#photo div.media-container div.media img {
