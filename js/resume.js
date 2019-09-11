@@ -170,7 +170,7 @@ function auto_size(img, maxwidth, maxheight) {
                     && elem.images.join('').length > 0
                 ) {
                     for (j = 0; j < elem.images.length; ++j) {
-                        images += '<img src="/images/books/' + elem.images[j] + '" class="rounded" alt="' + elem.name + '">';
+                        images += '<img src="/images/sections/bibliography/' + elem.images[j] + '" class="rounded" alt="' + elem.name + '">';
                     }
                 }
 
