@@ -122,6 +122,34 @@ function auto_size(img, maxwidth, maxheight) {
     });
 
     /**
+     * Загрузка данных в раздел "Статьи".
+     */
+    $.getJSON( 'data/articles.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+            var container = $('#articles-container');
+            var template = $('#articles-item');
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+                var elem = json[i];
+                var item = template.html()
+                    .replace(/{{ text }}/g, elem.text)
+                ;
+                html += item;
+            }
+
+            container.html(html);
+        })
+
+    ;
+
+    /**
      * Загрузка данных в раздел "Библиография".
      */
     $.getJSON( 'data/bibliography.json')
@@ -195,6 +223,35 @@ function auto_size(img, maxwidth, maxheight) {
     ;
 
     /**
+     * Загрузка данных в раздел "Фото".
+     */
+    $.getJSON( 'data/photo.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+            var container = $('#photo-container');
+            var template = $('#photo-item');
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+                var elem = json[i];
+                var item = template.html()
+                    .replace(/{{ name }}/g, elem.name)
+                    .replace(/{{ alt }}/g, elem.alt)
+                ;
+                html += item;
+            }
+
+            container.html(html);
+        })
+
+    ;
+
+    /**
      * Загрузка данных в раздел "Видео".
      */
     $.getJSON( 'data/video.json')
@@ -240,35 +297,6 @@ function auto_size(img, maxwidth, maxheight) {
 
             container.html(html);
 
-        })
-
-    ;
-
-    /**
-     * Загрузка данных в раздел "Фото".
-     */
-    $.getJSON( 'data/photo.json')
-
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-
-        .done(function(json) {
-            var container = $('#photo-container');
-            var template = $('#photo-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                var item = template.html()
-                    .replace(/{{ name }}/g, elem.name)
-                    .replace(/{{ alt }}/g, elem.alt)
-                ;
-                html += item;
-            }
-
-            container.html(html);
         })
 
     ;
