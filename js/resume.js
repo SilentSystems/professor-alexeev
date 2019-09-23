@@ -138,10 +138,12 @@ function auto_size(img, maxwidth, maxheight) {
 
             for (i = 0; i < json.length; ++i) {
                 var elem = json[i];
-                var item = template.html()
-                    .replace(/{{ text }}/g, elem.text)
-                ;
-                html += item;
+                if (elem.text) {
+                    var item = template.html()
+                        .replace(/{{ text }}/g, elem.text)
+                    ;
+                    html += item;
+                }
             }
 
             container.html(html);
