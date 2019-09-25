@@ -153,13 +153,49 @@ section {
   &#articles {
 
     ol {
+      counter-reset: list1;
       list-style-position: outside;
-      margin: 0 2rem;
+      margin: 0;
       padding: 0;
 
       li {
+        list-style-type: none;
         margin: 0.5rem 0;
-        padding-left: 0.5rem;
+        padding: 0;
+
+        &:before {
+          display: inline-block;
+
+          margin-right: 0.5rem;
+          padding: 0.25em 0.4em;
+
+          font-size: 90%;
+          font-weight: 700;
+          line-height: 1;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: baseline;
+
+          border-radius: .25rem;
+          transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+          counter-increment: list1;
+          content: counter(list1) ". ";
+          background-color: gainsboro;
+        }
+
+        &.div {
+          margin: 1.1rem 0;
+          padding: 0.5rem 0.9rem;
+          border-radius: 0.5rem;
+          background-color: aliceblue;
+
+          &:before {
+            display: none;
+            counter-increment: none;
+            content: "";
+          }
+        }
       }
     }
   }

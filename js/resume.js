@@ -142,7 +142,9 @@ function auto_size(img, maxwidth, maxheight) {
                     var item = template.html()
                         .replace(/{{ text }}/g, elem.text)
                     ;
-                    html += item;
+                    var tag1 = (elem.div) ? '<li class="div">' : '<li>';
+                    var tag2 = '</li>';
+                    html += tag1 + item + tag2;
                 }
             }
 
