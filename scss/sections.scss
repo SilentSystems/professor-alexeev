@@ -160,12 +160,17 @@ section {
 
       li {
         list-style-type: none;
+
+        display: flex;
         margin: 0.5rem 0;
         padding: 0;
+
+        text-align: justify;
 
         &:before {
           display: inline-block;
 
+          min-width: 2rem;
           margin-right: 0.5rem;
           padding: 0.25em 0.4em;
 
