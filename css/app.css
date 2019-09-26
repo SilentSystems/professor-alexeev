@@ -222,8 +222,10 @@ section {
             background-color: gainsboro;
             font-size: 90%; }
           section#bibliography ul li div.header h2 small {
+            display: block;
+            margin: 0.5rem 0;
             color: #6c757d;
-            line-height: 2rem; }
+            line-height: 1rem; }
       section#bibliography ul li div.body {
         font-size: 0.9rem;
         background-color: aliceblue;

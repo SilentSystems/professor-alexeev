@@ -238,8 +238,10 @@ section {
             }
 
             small {
+              display: block;
+              margin: 0.5rem 0;
               color: #6c757d;
-              line-height: 2rem;
+              line-height: 1rem;
             }
           }
         }
