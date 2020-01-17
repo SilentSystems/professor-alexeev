@@ -290,8 +290,8 @@ section {
         @include flex-align-start;
         flex-flow: column;
         margin: 1rem 1rem 1rem 0;
-        max-width: $media-container-size;
-        max-height: $media-container-size;
+        width: $video-container-width;
+        // max-height: $video-container-height;
         overflow: hidden hidden;
         border: {
           radius: 5px;
@@ -299,9 +299,41 @@ section {
 
         div.media-body {
           font-size: 75%;
+          overflow: hidden;
+          text-overflow: ellipsis;
 
-          div.media-body p {
+          p {
+            // border: 1px solid red;
             margin-bottom: 0.4rem;
+          }
+
+          /* Добавляем собственный маркер для открытого состояния */
+          details[open] summary:before {
+            content: '\f146';
+          }
+
+          details {
+
+            /* Убираем стандартный маркер Firefox */
+            & > summary {
+              list-style: none;
+            }
+
+            summary {
+              margin-bottom: 0.3rem;
+
+              /* Убираем стандартный маркер Chrome */
+              &::-webkit-details-marker {
+                display: none
+              }
+
+              /* Добавляем собственный маркер для закрытого состояния */
+              &:before {
+                content: '\f0fe';
+                font-family: "Font Awesome 5 free", serif;
+                margin-right: 7px;
+              }
+            }
           }
         }
       }
@@ -321,8 +353,8 @@ section {
         @include flex-align-start;
         flex-flow: column;
         margin: 1rem 1rem 1rem 0;
-        max-width: $media-container-size;
-        max-height: $media-container-size;
+        max-width: $photo-container-size;
+        max-height: $photo-container-size;
         overflow: hidden hidden;
         border: {
           radius: 5px;

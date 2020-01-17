@@ -276,15 +276,19 @@ function auto_size(img, maxwidth, maxheight) {
 
                 var elem = json[i];
 
+                console.log(elem);
+
                 var paragraphs = '';
 
                 if (
                     elem.paragraphs.length > 0
                     && elem.paragraphs.join('').length > 0
                 ) {
+                    paragraphs = '<details><summary>Описание ...</summary>';
                     for (j = 0; j < elem.paragraphs.length; ++j) {
                         paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
                     }
+                    paragraphs += '</details>';
                 } else {
                     paragraphs = '';
                 }
