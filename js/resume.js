@@ -121,15 +121,40 @@ function auto_size(img, maxwidth, maxheight) {
     });
 
     /**
-     * Загрузка данных в раздел "Теория".
+     * Загрузка данных в раздел "О профессоре".
      */
-    $.getJSON('data/theory.json')
-
+    $.getJSON('data/about.json')
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         })
+        .done(function(json) {
+            var container = $('#about-container');
+            var template = $('#about-item');
+            var html = '';
 
+            for (i = 0; i < json.length; ++i) {
+                var elem = json[i];
+                if (elem.html.length > 0) {
+                    var item = template.html()
+                        .replace(/{{ text }}/g, elem.html)
+                    ;
+                    html += '<p>' + item + '</p>';
+                }
+            }
+
+            container.html(html);
+        })
+    ;
+
+    /**
+     * Загрузка данных в раздел "Теория".
+     */
+    $.getJSON('data/theory.json')
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
         .done(function(json) {
             var container = $('#theory-container');
             var template = $('#theory-item');
@@ -147,19 +172,16 @@ function auto_size(img, maxwidth, maxheight) {
 
             container.html(html);
         })
-
     ;
 
     /**
      * Загрузка данных в раздел "Статьи".
      */
     $.getJSON('data/articles.json')
-
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         })
-
         .done(function(json) {
             var container = $('#articles-container');
             var template = $('#articles-item');
@@ -179,28 +201,23 @@ function auto_size(img, maxwidth, maxheight) {
 
             container.html(html);
         })
-
     ;
 
     /**
      * Загрузка данных в раздел "Библиография".
      */
     $.getJSON('data/bibliography.json')
-
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         })
-
         .done(function(json) {
 
             var container = $('#bibliography-container');
             var template = $('#bibliography-item');
-
             var html = '';
 
             for (i = 0; i < json.length; ++i) {
-
                 var elem = json[i];
 
                 /**
@@ -223,7 +240,6 @@ function auto_size(img, maxwidth, maxheight) {
                 /**
                  * Формируем изображения.
                  */
-
                 var images = '';
 
                 if (
@@ -246,25 +262,20 @@ function auto_size(img, maxwidth, maxheight) {
                 ;
 
                 html += item;
-
             }
 
             container.html(html);
-
         })
-
     ;
 
     /**
      * Загрузка данных в раздел "Фото".
      */
     $.getJSON('data/photo.json')
-
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         })
-
         .done(function(json) {
             var container = $('#photo-container');
             var template = $('#photo-item');
@@ -281,28 +292,22 @@ function auto_size(img, maxwidth, maxheight) {
 
             container.html(html);
         })
-
     ;
 
     /**
      * Загрузка данных в раздел "Видео".
      */
     $.getJSON('data/video.json')
-
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         })
-
         .done(function(json) {
-
             var container = $('#video-container');
             var template = $('#video-item');
-
             var html = '';
 
             for (i = 0; i < json.length; ++i) {
-
                 var elem = json[i];
                 var paragraphs = '';
 
@@ -326,25 +331,20 @@ function auto_size(img, maxwidth, maxheight) {
                 ;
 
                 html += item;
-
             }
 
             container.html(html);
-
         })
-
     ;
 
     /**
      * Загрузка данных в раздел "Контакты".
      */
     $.getJSON('data/contacts.json')
-
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         })
-
         .done(function(json) {
             var container = $('#contacts-container');
             var template = $('#contact-item');
@@ -362,7 +362,6 @@ function auto_size(img, maxwidth, maxheight) {
 
             container.html(html);
         })
-
     ;
 
 }) (jQuery);
