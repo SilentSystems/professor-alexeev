@@ -344,7 +344,6 @@ section {
 
     div.media-container {
       @include display-flex;
-      @include flex-align-start;
       justify-content: flex-start;
       flex-wrap: wrap;
 

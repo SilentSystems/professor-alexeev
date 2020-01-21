@@ -53,7 +53,7 @@ function auto_size(img, maxwidth, maxheight) {
         ) {
             e.preventDefault();
 
-            console.log(e);
+            // console.log(e);
 
             hashLinks.removeClass('active');
             $(this).addClass('active');
@@ -84,12 +84,11 @@ function auto_size(img, maxwidth, maxheight) {
         hashSections.map(function (item) {
             var offsetTop = item.offset().top;
             if (fromTop > offsetTop) {
-                console.log($(item).attr('id'), fromTop, offsetTop);
-
+                // console.log($(item).attr('id'), fromTop, offsetTop);
                 hashLinks.removeClass('active');
                 hashLinks.filter(function (subItem) {
                     if (subItem.href === '#' + item.id) {
-                        console.log('###', subItem);
+                        // console.log('###', subItem);
                         return subItem;
                     }
                 }).addClass('active');
@@ -122,9 +121,39 @@ function auto_size(img, maxwidth, maxheight) {
     });
 
     /**
+     * Загрузка данных в раздел "Теория".
+     */
+    $.getJSON('data/theory.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+            var container = $('#theory-container');
+            var template = $('#theory-item');
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+                var elem = json[i];
+                if (elem.html.length > 0) {
+                    var item = template.html()
+                        .replace(/{{ text }}/g, elem.html)
+                    ;
+                    html += '<p>' + item + '</p>';
+                }
+            }
+
+            container.html(html);
+        })
+
+    ;
+
+    /**
      * Загрузка данных в раздел "Статьи".
      */
-    $.getJSON( 'data/articles.json')
+    $.getJSON('data/articles.json')
 
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
@@ -156,7 +185,7 @@ function auto_size(img, maxwidth, maxheight) {
     /**
      * Загрузка данных в раздел "Библиография".
      */
-    $.getJSON( 'data/bibliography.json')
+    $.getJSON('data/bibliography.json')
 
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
@@ -229,7 +258,7 @@ function auto_size(img, maxwidth, maxheight) {
     /**
      * Загрузка данных в раздел "Фото".
      */
-    $.getJSON( 'data/photo.json')
+    $.getJSON('data/photo.json')
 
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
@@ -258,7 +287,7 @@ function auto_size(img, maxwidth, maxheight) {
     /**
      * Загрузка данных в раздел "Видео".
      */
-    $.getJSON( 'data/video.json')
+    $.getJSON('data/video.json')
 
         .fail(function(jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
@@ -275,9 +304,6 @@ function auto_size(img, maxwidth, maxheight) {
             for (i = 0; i < json.length; ++i) {
 
                 var elem = json[i];
-
-                console.log(elem);
-
                 var paragraphs = '';
 
                 if (
@@ -305,6 +331,36 @@ function auto_size(img, maxwidth, maxheight) {
 
             container.html(html);
 
+        })
+
+    ;
+
+    /**
+     * Загрузка данных в раздел "Контакты".
+     */
+    $.getJSON('data/contacts.json')
+
+        .fail(function(jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        })
+
+        .done(function(json) {
+            var container = $('#contacts-container');
+            var template = $('#contact-item');
+            var html = '';
+
+            for (i = 0; i < json.length; ++i) {
+                var elem = json[i];
+                if (elem.html.length > 0) {
+                    var item = template.html()
+                        .replace(/{{ text }}/g, elem.html)
+                    ;
+                    html += item;
+                }
+            }
+
+            container.html(html);
         })
 
     ;
