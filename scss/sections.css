@@ -15,7 +15,7 @@ section #bibliography div.accordion div.card div.card-body {
   font-size: 0.9rem;
   background-color: aliceblue;
   padding: 0.8rem 1.1rem;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   overflow: hidden;
 }
 section #bibliography div.accordion div.card div.card-body p:last-child {
@@ -60,7 +60,7 @@ section #video div.media-container div.media {
   max-height: 320px;
   overflow-x: hidden;
   overflow-y: hidden;
-  border-radius: 5px;
+  border-radius: $border-radius;
 }
 section #video div.media-container div.media div.media-body {
   font-size: 75%;
@@ -112,7 +112,7 @@ section #contacts ul li span {
     line-height: 1;
     background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 0.25rem;
+    border-radius: $border-radius;
     margin-right: 0.2rem;
   }
 

@@ -9,7 +9,7 @@ html {
 body {
   font-family: $common-font-family;
   font-size: $common-font-size;
-  color: $common-font-color;
+  color: $primary-font-color;
   padding-top: 0;
 
   @media (min-width: $mobile-max-width) {

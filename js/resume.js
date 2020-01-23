@@ -97,27 +97,10 @@ function auto_size(img, maxwidth, maxheight) {
     });
 
     /**
-     * Закрытие меню после клика на пункт (в мобильном режиме).
+     * Кнопка "Переключение навигации".
      */
-    hashLinks.click(function() {
-        // $('.navbar-collapse').hide('slow');
-    });
-
-    /**
-     * Простановка ссылок для раскрытия подкатов в медиа-элементах.
-     */
-    $('.media').each(function (index) {
-        var body = $(this).find('.media-body').first();
-        var height = parseInt(body.css('height'));
-        if (
-            !isNaN(height)
-            && height > 140
-        ) {
-            /**
-             * Урезаем текст, добавляем ссылку на подкат...
-             */
-            // ...
-        }
+    $('#toggler-button').click(function() {
+        $('#main-menu').toggleClass('hide');
     });
 
     /**
