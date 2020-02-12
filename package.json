@@ -1,10 +1,18 @@
 {
   "name": "professor-alexeev",
+  "description": "Персональный сайт Профессора Алексеева А. А.",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:silentsystems/professor-alexeev.git"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "node-sass scss/app.scss -o css",
     "watch": "node-sass --watch scss/app.scss -o css"
   },
   "dependencies": {
-    "node-sass": "^4.12.0"
+    "axios": "^0.19.2",
+    "node-sass": "^4.13.1",
+    "vue": "^2.6.11"
   }
 }
