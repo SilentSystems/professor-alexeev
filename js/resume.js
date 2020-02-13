@@ -1,350 +1,106 @@
-/**
- * Попапы для открытия видео и фото.
- */
-function open_popup (elem, coef = 2) {
+Vue.component('about-container', {
+    props: ['item'],
+    template: '<p v-if="item.html">{{ item.html }}</p>'
+});
 
-    window.open(
-        (elem.href) ? elem.href : elem.src,
-        '',
-        'width=' + (screen.availWidth / coef) + ', height=' + (screen.availHeight / coef) + ', top='
-            + (screen.availHeight / coef / 2) + ', left=' + (screen.availWidth / coef / 2)
-    );
+Vue.component('theory-container', {
+    props: ['item'],
+    template: '<p v-if="item.html">{{ item.html }}</p>'
+});
 
-    return false;
-}
+Vue.component('articles-container', {
+    props: ['item'],
+    template: '' +
+        '<li v-if="item.div && item.text" class="div">{{ item.text }}</li>' +
+        '<li v-else-if="item.text">{{ item.text }}</li>'
+});
 
-function auto_size(img, maxwidth, maxheight) {
-    if (img.width > maxwidth) {
-        width = img.width;
-        height = img.height;
-        img.width = maxwidth;
-        img.height = (maxwidth * height) / width;
-    }
+Vue.component('bibliography-container', {
+    props: [
+        'item',
+        'index',
+    ],
+    template: '' +
+        '<li v-if="item.name">' +
+        '    <div class="header">' +
+        '        <h2>' +
+        '            <span class="badge badge-light">' +
+        '                {{ index }}.' +
+        '            </span>' +
+        '            {{ item.name }}' +
+        '            <small>' +
+        '                <strong>{{ item.authors }}</strong>' +
+        '                <em class="ml-2">{{ item.description }}</em>' +
+        '            </small>' +
+        '        </h2>' +
+        '    </div>' +
+        '    <div class="body">' +
+        '        <div v-if="item.images" v-for="image in item.images" class="images">' +
+        '            <img :src="image" class="rounded" :alt="item.name">' +
+        '        </div>' +
+        '        <div v-if="item.paragraphs" v-for="paragraph in item.paragraphs" class="description">' +
+        '            {{ paragraph }}' +
+        '        </div>' +
+        '        <div v-if="!item.paragraphs || item.paragraphs.length < 1" class="description">' +
+        '            Описание отсутствует.' +
+        '        </div>' +
+        '    </div>' +
+        '</li>'
+});
 
-    if (img.height > maxheight) {
-        width = img.width;
-        height = img.height;
-        img.height = maxheight;
-        img.width = (maxheight * width) / height;
-    }
-}
+const url_about = "/data/about.json";
+const url_theory = "/data/theory.json";
+const url_articles = "/data/articles.json";
+const url_bibliography = "/data/bibliography.json";
+const url_photo = "/data/photo.json";
+const url_video = "/data/video.json";
+const url_contacts = "/data/contacts.json";
 
-(function($) {
+var header = new Vue({
+    el: '#header',
+});
 
-    var hashLinks = $('nav a.nav-link[href*="#"]:not([href="#"])');
-
-    var hashSections = [];
-
-    hashLinks.each(function (index) {
-        hashSections.push($('section' + this.hash));
-    });
-
-    /**
-     * Клик по ссылкам меню и плавный скролл по секциям.
-     */
-    hashLinks.click(function(e) {
-        var locationPathname = location.pathname.replace(/^\//, '');
-        var thisPathname = this.pathname.replace(/^\//, '');
-
-        if (
-            locationPathname === thisPathname
-            && location.hostname === this.hostname
-            && location.hash !== this.hash
-        ) {
-            e.preventDefault();
-
-            // console.log(e);
-
-            hashLinks.removeClass('active');
-            $(this).addClass('active');
-
-            var hash = this.hash;
-            var target = $(hash);
-
-            target = target.length ? target : $('[name=' + hash.slice(1) + ']');
-
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: (target.offset().top)
-                }, 1000, 'easeInOutExpo', function () {
-                    location.hash = hash;
-                });
-
-                return false;
-            }
-        }
-    });
-
-    /**
-     * Изменения в пунктах меню и в URL-хеше при скролле страницы.
-     */
-    $(window).on('scroll', function(e) {
-        var shift = 10;
-        var fromTop = $(this).scrollTop() + shift;
-        hashSections.map(function (item) {
-            var offsetTop = item.offset().top;
-            if (fromTop > offsetTop) {
-                // console.log($(item).attr('id'), fromTop, offsetTop);
-                hashLinks.removeClass('active');
-                hashLinks.filter(function (subItem) {
-                    if (subItem.href === '#' + item.id) {
-                        // console.log('###', subItem);
-                        return subItem;
+var main = new Vue({
+    el: '#main',
+    mounted() {
+        axios.get(url_about).then(response => {
+            this.about = response.data;
+        });
+        axios.get(url_theory).then(response => {
+            this.theory = response.data;
+        });
+        axios.get(url_articles).then(response => {
+            this.articles = response.data;
+        });
+        axios.get(url_bibliography).then(response => {
+            this.bibliography = response.data;
+            if (this.bibliography) {
+                for (var i = 0; i < this.bibliography.length; i++) {
+                    if (this.bibliography[i].images && this.bibliography[i].images.length > 0) {
+                        for (var j = 0; j < this.bibliography[i].images.length; j++) {
+                            this.bibliography[i].images[j] = '/images/sections/bibliography/' + this.bibliography[i].images[j];
+                        }
                     }
-                }).addClass('active');
+                }
             }
         });
-    });
-
-    /**
-     * Кнопка "Переключение навигации".
-     */
-    $('#toggler-button').click(function() {
-        $('#main-menu').toggleClass('hide');
-    });
-
-    /**
-     * Загрузка данных в раздел "О профессоре".
-     */
-    $.getJSON('data/about.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-            var container = $('#about-container');
-            var template = $('#about-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                if (elem.html.length > 0) {
-                    var item = template.html()
-                        .replace(/{{ text }}/g, elem.html)
-                    ;
-                    html += '<p>' + item + '</p>';
-                }
-            }
-
-            container.html(html);
-        })
-    ;
-
-    /**
-     * Загрузка данных в раздел "Теория".
-     */
-    $.getJSON('data/theory.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-            var container = $('#theory-container');
-            var template = $('#theory-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                if (elem.html.length > 0) {
-                    var item = template.html()
-                        .replace(/{{ text }}/g, elem.html)
-                    ;
-                    html += '<p>' + item + '</p>';
-                }
-            }
-
-            container.html(html);
-        })
-    ;
-
-    /**
-     * Загрузка данных в раздел "Статьи".
-     */
-    $.getJSON('data/articles.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-            var container = $('#articles-container');
-            var template = $('#articles-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                if (elem.text) {
-                    var item = template.html()
-                        .replace(/{{ text }}/g, elem.text)
-                    ;
-                    var tag1 = (elem.div) ? '<li class="div">' : '<li>';
-                    var tag2 = '</li>';
-                    html += tag1 + item + tag2;
-                }
-            }
-
-            container.html(html);
-        })
-    ;
-
-    /**
-     * Загрузка данных в раздел "Библиография".
-     */
-    $.getJSON('data/bibliography.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-
-            var container = $('#bibliography-container');
-            var template = $('#bibliography-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-
-                /**
-                 * Формируем параграфы.
-                 * @type {string}
-                 */
-                var paragraphs = '';
-
-                if (
-                    elem.paragraphs.length > 0
-                    && elem.paragraphs.join('').length > 0
-                ) {
-                    for (j = 0; j < elem.paragraphs.length; ++j) {
-                        paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
-                    }
-                } else {
-                    paragraphs = '<p>Описание отсутствует.</p>';
-                }
-
-                /**
-                 * Формируем изображения.
-                 */
-                var images = '';
-
-                if (
-                    elem.images.length > 0
-                    && elem.images.join('').length > 0
-                ) {
-                    for (j = 0; j < elem.images.length; ++j) {
-                        images += '<img src="/images/sections/bibliography/' + elem.images[j] + '" class="rounded" alt="' + elem.name + '">';
-                    }
-                }
-
-                var item = template.html()
-                    .replace(/{{ id }}/g, i + 1)
-                    .replace(/{{ name }}/g, elem.name)
-                    .replace(/{{ authors }}/g, elem.authors)
-                    .replace(/{{ description }}/g, elem.description)
-                    .replace(/{{ paragraphs }}/g, paragraphs)
-                    .replace(/{{ images }}/g, images)
-                    .replace(/( \d{4} г.)/g, '<strong>$1</strong>')
-                ;
-
-                html += item;
-            }
-
-            container.html(html);
-        })
-    ;
-
-    /**
-     * Загрузка данных в раздел "Фото".
-     */
-    $.getJSON('data/photo.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-            var container = $('#photo-container');
-            var template = $('#photo-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                var item = template.html()
-                    .replace(/{{ name }}/g, elem.name)
-                    .replace(/{{ alt }}/g, elem.alt)
-                ;
-                html += item;
-            }
-
-            container.html(html);
-        })
-    ;
-
-    /**
-     * Загрузка данных в раздел "Видео".
-     */
-    $.getJSON('data/video.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-            var container = $('#video-container');
-            var template = $('#video-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                var paragraphs = '';
-
-                if (
-                    elem.paragraphs.length > 0
-                    && elem.paragraphs.join('').length > 0
-                ) {
-                    paragraphs = '<details><summary>Описание ...</summary>';
-                    for (j = 0; j < elem.paragraphs.length; ++j) {
-                        paragraphs += '<p>' + elem.paragraphs[j] + '</p>';
-                    }
-                    paragraphs += '</details>';
-                } else {
-                    paragraphs = '';
-                }
-
-                var item = template.html()
-                    .replace(/{{ code }}/g, elem.code)
-                    .replace(/{{ caption }}/g, elem.caption)
-                    .replace(/{{ paragraphs }}/g, paragraphs)
-                ;
-
-                html += item;
-            }
-
-            container.html(html);
-        })
-    ;
-
-    /**
-     * Загрузка данных в раздел "Контакты".
-     */
-    $.getJSON('data/contacts.json')
-        .fail(function(jqxhr, textStatus, error) {
-            var err = textStatus + ', ' + error;
-            console.log('Request Failed: ' + err);
-        })
-        .done(function(json) {
-            var container = $('#contacts-container');
-            var template = $('#contact-item');
-            var html = '';
-
-            for (i = 0; i < json.length; ++i) {
-                var elem = json[i];
-                if (elem.html.length > 0) {
-                    var item = template.html()
-                        .replace(/{{ text }}/g, elem.html)
-                    ;
-                    html += item;
-                }
-            }
-
-            container.html(html);
-        })
-    ;
-
-}) (jQuery);
+        axios.get(url_photo).then(response => {
+            this.photo = response.data;
+        });
+        axios.get(url_video).then(response => {
+            this.video = response.data;
+        });
+        axios.get(url_contacts).then(response => {
+            this.contacts = response.data;
+        });
+    },
+    data: {
+        about: [],
+        theory: [],
+        articles: [],
+        bibliography: [],
+        photo: [],
+        video: [],
+        contacts: [],
+    }
+});

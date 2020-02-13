@@ -25,7 +25,7 @@
 
 <body>
 
-<header>
+<header id="header">
     <nav>
         <a class="logo" href="/">
             <img class="rounded-circle" src="/images/avatars/alexeev_top_squared.jpg" alt="Профессор Алексеев А. А.">
@@ -50,17 +50,15 @@
     </nav>
 </header>
 
-<main id="app">
+<main id="main">
 
     <section id="about">
         <article>
-            <h1 class="text-uppercase">
-                О профессоре
-            </h1>
+            <h1 class="text-uppercase">О профессоре</h1>
             <about-container
-                    v-for="item in about"
+                    v-for="(item, index) in about"
                     v-bind:item="item"
-                    v-bind:key="item.id"
+                    v-bind:key="index"
             ></about-container>
         </article>
     </section>
@@ -69,12 +67,12 @@
 
     <section id="theory">
         <article>
-            <h1 class="text-uppercase">
-                Суть соединительнотканной теории медицины и биологии
-            </h1>
-            <div class="theory-container" id="theory-container">
-                <!-- Список "Теория". -->
-            </div>
+            <h1 class="text-uppercase">Суть соединительнотканной теории медицины и биологии</h1>
+            <theory-container
+                    v-for="(item, index) in theory"
+                    v-bind:item="item"
+                    v-bind:key="index"
+            ></theory-container>
         </article>
     </section>
 
@@ -82,11 +80,13 @@
 
     <section id="articles">
         <article>
-            <h1 class="text-uppercase">
-                Статьи и интервью
-            </h1>
-            <ol id="articles-container">
-                <!-- Список "Статьи". -->
+            <h1 class="text-uppercase">Статьи и интервью</h1>
+            <ol>
+                <articles-container
+                        v-for="(item, index) in articles"
+                        v-bind:item="item"
+                        v-bind:key="index"
+                ></articles-container>
             </ol>
         </article>
     </section>
@@ -99,8 +99,13 @@
             <h1 class="text-uppercase">
                 Библиография
             </h1>
-            <ul id="bibliography-container">
-                <!-- Список "Библиография". -->
+            <ul>
+                <bibliography-container
+                        v-for="(item, index) in bibliography"
+                        v-bind:item="item"
+                        v-bind:index="index + 1"
+                        v-bind:key="index"
+                ></bibliography-container>
             </ul>
         </article>
 
@@ -164,51 +169,6 @@
 
 </main>
 
-<!-- Шаблон элемента списка "О профессоре". -->
-
-<template id="about-item">
-    {{ text }}
-</template>
-
-<!-- Шаблон элемента списка "Теория". -->
-
-<template id="theory-item">
-    {{ text }}
-</template>
-
-<!-- Шаблон элемента списка "Статьи". -->
-
-<template id="articles-item">
-    {{ text }}
-</template>
-
-<!-- Шаблон элемента списка "Библиография". -->
-
-<template id="bibliography-item">
-    <li>
-        <div class="header">
-            <h2>
-                <span class="badge badge-light">
-                    {{ id }}.
-                </span>
-                {{ name }}
-                <small>
-                    <strong>{{ authors }}</strong>
-                    <em class="ml-2">{{ description }}</em>
-                </small>
-            </h2>
-        </div>
-        <div class="body">
-            <div class="images">
-                {{ images }}
-            </div>
-            <div class="description">
-                {{ paragraphs }}
-            </div>
-        </div>
-    </li>
-</template>
-
 <!-- Шаблон элемента списка "Фото". -->
 
 <template id="photo-item">
@@ -248,15 +208,6 @@
 
 <!-- Custom scripts for this template -->
 <script src="/js/resume.js"></script>
-
-<!-- jQuery first -->
-<!--<script src="js/jquery-3.4.1.min.js"></script>-->
-
-<!-- Plugin for easing effect -->
-<!--<script src="js/jquery.easing.min.js"></script>-->
-
-<!-- Custom scripts for this template -->
-<!--<script src="js/resume.old.js"></script>-->
 
 </body>
 
