@@ -166,6 +166,8 @@ section {
   @media (min-width: 768px) {
     section {
       padding: 0.5rem 2rem 2rem 2rem; } }
+  section article h1 {
+    text-transform: uppercase; }
   section#articles ol {
     counter-reset: list1;
     list-style-position: outside;

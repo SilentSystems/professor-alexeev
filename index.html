@@ -34,9 +34,7 @@
             <button id="toggler-button" class="toggler" title="Переключение навигации">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
-            <h1>
-                Профессор Алексеев А. А.
-            </h1>
+            <h1>Профессор Алексеев А. А.</h1>
         </div>
         <ul id="main-menu">
             <li><a href="#about">О профессоре</a></li>
@@ -54,7 +52,7 @@
 
     <section id="about">
         <article>
-            <h1 class="text-uppercase">О профессоре</h1>
+            <h1>О профессоре</h1>
             <about-container
                     v-for="(item, index) in about"
                     v-bind:item="item"
@@ -67,7 +65,7 @@
 
     <section id="theory">
         <article>
-            <h1 class="text-uppercase">Суть соединительнотканной теории медицины и биологии</h1>
+            <h1>Суть соединительнотканной теории медицины и биологии</h1>
             <theory-container
                     v-for="(item, index) in theory"
                     v-bind:item="item"
@@ -80,7 +78,7 @@
 
     <section id="articles">
         <article>
-            <h1 class="text-uppercase">Статьи и интервью</h1>
+            <h1>Статьи и интервью</h1>
             <ol>
                 <articles-container
                         v-for="(item, index) in articles"
@@ -96,9 +94,7 @@
     <section id="bibliography">
 
         <article>
-            <h1 class="text-uppercase">
-                Библиография
-            </h1>
+            <h1>Библиография</h1>
             <ul>
                 <bibliography-container
                         v-for="(item, index) in bibliography"
@@ -132,11 +128,13 @@
 
     <section id="photo">
         <article>
-            <h1 class="text-uppercase">
-                Фото
-            </h1>
-            <div class="media-container" id="photo-container">
-                <!-- Список "Фото". -->
+            <h1>Фото</h1>
+            <div class="media-container">
+                <photo-container
+                        v-for="(item, index) in photo"
+                        v-bind:item="item"
+                        v-bind:key="index"
+                ></photo-container>
             </div>
         </article>
     </section>
@@ -145,9 +143,7 @@
 
     <section id="video">
         <article>
-            <h1 class="text-uppercase">
-                Видео
-            </h1>
+            <h1>Видео</h1>
             <div class="media-container" id="video-container">
                 <!-- Список "Видео". -->
             </div>
@@ -158,9 +154,7 @@
 
     <section id="contacts">
         <article>
-            <h1 class="text-uppercase">
-                Контакты
-            </h1>
+            <h1>Контакты</h1>
             <div class="contacts-container" id="contacts-container">
                 <!-- Список "Контакты". -->
             </div>
@@ -168,14 +162,6 @@
     </section>
 
 </main>
-
-<!-- Шаблон элемента списка "Фото". -->
-
-<template id="photo-item">
-    <div class="media">
-        <img src="/images/sections/photo/{{ name }}.jpg" onClick="open_popup(this, 1); return false;" alt="{{ alt }}">
-    </div>
-</template>
 
 <!-- Шаблон элемента списка "Видео". -->
 

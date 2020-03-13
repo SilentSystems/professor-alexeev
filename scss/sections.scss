@@ -153,6 +153,12 @@ section {
     padding: 0.5rem 2rem 2rem 2rem;
   }
 
+  & article {
+    h1 {
+      text-transform: uppercase;
+    }
+  }
+
   &#articles {
 
     ol {

@@ -1,3 +1,17 @@
+/**
+ * Попапы для открытия видео и фото.
+ */
+function open_popup (elem, coef = 2) {
+    window.open(
+        (elem.href) ? elem.href : elem.src,
+        '',
+        'width=' + (screen.availWidth / coef) + ', height=' + (screen.availHeight / coef) + ', top='
+        + (screen.availHeight / coef / 2) + ', left=' + (screen.availWidth / coef / 2)
+    );
+
+    return false;
+}
+
 Vue.component('about-container', {
     props: ['item'],
     template: '<p v-if="item.html">{{ item.html }}</p>'
@@ -48,6 +62,12 @@ Vue.component('bibliography-container', {
         '</li>'
 });
 
+Vue.component('photo-container', {
+    props: ['item'],
+    template: '' +
+        '<div class="media"><img :src="item.src" onClick="open_popup(this, 1); return false;" :alt="item.alt"></div>'
+});
+
 const url_about = "/data/about.json";
 const url_theory = "/data/theory.json";
 const url_articles = "/data/articles.json";
@@ -86,6 +106,13 @@ var main = new Vue({
         });
         axios.get(url_photo).then(response => {
             this.photo = response.data;
+            if (this.photo) {
+                for (var i = 0; i < this.photo.length; i++) {
+                    if (this.photo[i].name && this.photo[i].name.length > 0) {
+                        this.photo[i].src = '/images/sections/photo/' + this.photo[i].name + '.jpg';
+                    }
+                }
+            }
         });
         axios.get(url_video).then(response => {
             this.video = response.data;
