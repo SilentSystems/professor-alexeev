@@ -65,7 +65,32 @@ Vue.component('bibliography-container', {
 Vue.component('photo-container', {
     props: ['item'],
     template: '' +
-        '<div class="media"><img :src="item.src" onClick="open_popup(this, 1); return false;" :alt="item.alt"></div>'
+        '<div class="media">' +
+        '    <img :src="item.src" onClick="open_popup(this, 1); return false;" :alt="item.alt">' +
+        '</div>'
+});
+
+Vue.component('video-container', {
+    props: ['item'],
+    template: '' +
+        '<div class="media">' +
+        '    <a :href="item.href" onClick="open_popup(this); return false;">' +
+        '        <img :src="item.src" alt="">' +
+        '    </a>' +
+        '    <div class="media-body">' +
+        '        <h6 class="mt-3 mb-2">{{ item.caption }}</h6>' +
+        '        <details v-if="item.paragraphs.length > 0"><summary>Описание ...</summary>' +
+        '           <div v-for="paragraph in item.paragraphs" class="description">' +
+        '               {{ paragraph }}' +
+        '           </div>' +
+        '        </details>' +
+        '    </div>' +
+        '</div>'
+});
+
+Vue.component('contacts-container', {
+    props: ['item'],
+    template: '<p v-if="item.html">{{ item.html }}</p>'
 });
 
 const url_about = "/data/about.json";
@@ -116,6 +141,14 @@ var main = new Vue({
         });
         axios.get(url_video).then(response => {
             this.video = response.data;
+            if (this.video) {
+                for (var i = 0; i < this.video.length; i++) {
+                    if (this.video[i].code && this.video[i].code.length > 0) {
+                        this.video[i].href = 'https://www.youtube.com/embed/' + this.video[i].code;
+                        this.video[i].src = 'https://img.youtube.com/vi/' + this.video[i].code + '/mqdefault.jpg';
+                    }
+                }
+            }
         });
         axios.get(url_contacts).then(response => {
             this.contacts = response.data;

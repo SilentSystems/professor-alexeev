@@ -144,8 +144,12 @@
     <section id="video">
         <article>
             <h1>Видео</h1>
-            <div class="media-container" id="video-container">
-                <!-- Список "Видео". -->
+            <div class="media-container">
+                <video-container
+                        v-for="(item, index) in video"
+                        v-bind:item="item"
+                        v-bind:key="index"
+                ></video-container>
             </div>
         </article>
     </section>
@@ -155,37 +159,17 @@
     <section id="contacts">
         <article>
             <h1>Контакты</h1>
-            <div class="contacts-container" id="contacts-container">
-                <!-- Список "Контакты". -->
+            <div class="contacts-container">
+                <contacts-container
+                        v-for="(item, index) in about"
+                        v-bind:item="item"
+                        v-bind:key="index"
+                ></contacts-container>
             </div>
         </article>
     </section>
 
 </main>
-
-<!-- Шаблон элемента списка "Видео". -->
-
-<template id="video-item">
-    <div class="media">
-        <a href="https://www.youtube.com/embed/{{ code }}" onClick="open_popup(this); return false;">
-            <img src="https://img.youtube.com/vi/{{ code }}/mqdefault.jpg" alt="">
-        </a>
-        <div class="media-body">
-            <h6 class="mt-3 mb-2">
-                {{ caption }}
-            </h6>
-            {{ paragraphs }}
-        </div>
-    </div>
-</template>
-
-<!-- Шаблон элемента списка "Контакты". -->
-
-<template id="contact-item">
-    <p>
-        {{ text }}
-    </p>
-</template>
 
 <!-- Optional JavaScript -->
 
