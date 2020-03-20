@@ -1,3 +1,5 @@
+Vue.use(VueRouter);
+
 /**
  * Попапы для открытия видео и фото.
  */
@@ -103,10 +105,26 @@ const url_contacts = "/data/contacts.json";
 
 var header = new Vue({
     el: '#header',
+    data: {
+        isMenuHidden: false,
+    },
+    methods: {
+        some: function () {
+        }
+    }
 });
 
 var main = new Vue({
     el: '#main',
+    data: {
+        about: [],
+        theory: [],
+        articles: [],
+        bibliography: [],
+        photo: [],
+        video: [],
+        contacts: []
+    },
     mounted() {
         axios.get(url_about).then(response => {
             this.about = response.data;
@@ -153,14 +171,5 @@ var main = new Vue({
         axios.get(url_contacts).then(response => {
             this.contacts = response.data;
         });
-    },
-    data: {
-        about: [],
-        theory: [],
-        articles: [],
-        bibliography: [],
-        photo: [],
-        video: [],
-        contacts: [],
     }
 });

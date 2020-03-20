@@ -31,12 +31,12 @@
             <img class="rounded-circle" src="/images/avatars/alexeev_top_squared.jpg" alt="Профессор Алексеев А. А.">
         </a>
         <div class="mobile-logo">
-            <button id="toggler-button" class="toggler" title="Переключение навигации">
+            <button @click="isMenuHidden = !isMenuHidden" class="toggler" title="Переключение навигации">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
             <h1>Профессор Алексеев А. А.</h1>
         </div>
-        <ul id="main-menu">
+        <ul v-bind:class="{ hide: isMenuHidden }">
             <li><a href="#about">О профессоре</a></li>
             <li><a href="#theory">Суть теории</a></li>
             <li><a href="#articles">Статьи и интервью</a></li>
@@ -175,6 +175,7 @@
 
 <script src="/node_modules/vue/dist/vue.js"></script>
 <script src="/node_modules/axios/dist/axios.js"></script>
+<script src="/node_modules/vue-router/dist/vue-router.js"></script>
 
 <!-- Custom scripts for this template -->
 <script src="/js/resume.js"></script>
