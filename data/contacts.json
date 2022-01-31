@@ -3,7 +3,7 @@
         "html": "<i class=\"fas fa-at mr-2\" style=\"color: darkorange;\"></i>\nЭлектронная почта:\n<span class=\"ml-1\"><a href=\"mailto:professor-alexeev@mail.ru\">professor-alexeev@mail.ru</a></span>\n"
     },
     {
-        "html": "<i class=\"fas fa-phone mr-2\" style=\"color: brown;\"></i>\nТелефон для заказа книг:\n<span class=\"ml-1\"><strong>+7 (926) 528 84 86</strong></span>\n"
+        "html": "<!-- <i class=\"fas fa-phone mr-2\" style=\"color: brown;\"></i>\nТелефон для заказа книг:\n<span class=\"ml-1\"><strong>+7 (926) 528 84 86</strong></span>\n-->"
     },
     {
         "html": "<i class=\"fas fa-phone mr-2\" style=\"color: brown;\"></i>\nТелефон для связи с профессором:\n<span class=\"ml-1\"><strong>+7 (926) 461 46 18</strong></span>\n"
