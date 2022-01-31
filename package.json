@@ -5,6 +5,6 @@
     "watch": "node-sass --watch scss/app.scss -o css"
   },
   "dependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^7.0.1"
   }
 }
