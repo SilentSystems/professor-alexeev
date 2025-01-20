@@ -2,7 +2,8 @@
   "name": "professor-alexeev",
   "scripts": {
     "dev": "node-sass scss/app.scss -o css",
-    "watch": "node-sass --watch scss/app.scss -o css"
+    "watch": "node-sass --watch scss/app.scss -o css",
+    "start": "serve -s"
   },
   "dependencies": {
     "node-sass": "^7.0.1"

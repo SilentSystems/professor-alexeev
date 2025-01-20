@@ -2,7 +2,6 @@
  * Попапы для открытия видео и фото.
  */
 function open_popup (elem, coef = 2) {
-
     window.open(
         (elem.href) ? elem.href : elem.src,
         '',
